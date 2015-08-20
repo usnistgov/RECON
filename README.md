@@ -11,9 +11,9 @@ and at least read the formalizations.
 Capturing business rules in a formal logic representation supports the enterprise in two important ways:
 it enables the evaluation of logs and audit records for conformance to, or violation of, the rules; and it 
 enables the conforming automation of some enterprise activities. The problem is that formal logic representations
-of the rules are very difficult for an industry expert to read and even more difficult to write, and 
+of the rules are very difficult for an industry expert to read and even more difficult to write, and 
 translating the natural language of the enterprise to formal logic is an unsolved problem. 
-RECON { Restricted English for Constructing Ontologies { is a subset of English that can be easily read by 
+RECON (Restricted English for Constructing Ontologies) is a subset of English that can be easily read by 
 an industry expert, while having a formal grammar and an unambiguous translation to formal logic. 
 
 ## Contacts
