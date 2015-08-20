@@ -1,0 +1,127 @@
+Dictionary input
+
+N noun phrase, plural
+V verb (present 3rd singular), 3rd plural, present participle, past participle
+A adjective
+W adjunct word
+
+C classifier (object type):  C <classifier>
+R relation (fact type): R (subject) <verb> [ (object) ] [ particle (role) ]*
+P property (role type): P (range) is a/the <property> <link> (domain)
+Q adjective:  Q (domain)is <adjective>
+F form
+S synonym
+D definition (text)
+E formulation (parseable text)
+
+Also think about identifying situations and roles, where the terms refer to the players of roles in the situation.  E.g., accident - involved driver, involved vehicle, investigating officer, witness
+
+Example:
+
+N quantity, quantities
+C quantity
+D an amount of something
+
+N kind
+C quantity kind
+D a classifier of quantities such that all instance of the same quantity kind are comparable and no pair of instances of different quantity kinds are comparable
+
+R (quantity) has quantity kind (quantity kind)
+F quantity is of quantity kind
+S quantity kind is the quantity kind of quantity
+R each quantity has exactly one quantity kind
+
+P kind of quantity: quantity kind
+E the quantity kind that is the quantity kind of the quantity
+
+
+Keywords:
+a, an, the
+each, every, some, any
+that, which, who, whom, what, when, where
+at least one, at most one, exactly one
+all
+is?, of?
+must
+not
+if, then, else, and, or, iff,
+
+Lexical symbols
+noun (term that matches a noun vocabulary item)
+object (term that is declared to refer to an individual, the default case)
+verb (term that matches the verb phrase of a fact type)
+property (term that matches a property item)
+adjective (term that matches an adjecitve item)
+keyword
+string (quoted string)
+number
+
+Grammar
+
+nounForm = [modifier] nounBase
+nounBase = nounPhrase [qualifier] | propertyForm
+propertyForm = property "of" nounForm
+
+nounPhrase = definedNoun | instance
+instance = string | number | properNoun
+definedNoun = nonnoun* noun noun* [postnouns]
+nonnoun = word that is not a noun 
+postnouns = word word*
+
+modifier = (article | adjective) adjective*
+article = "a" | "an" | "the" | "every" | "no" | quantifier
+quantifier = ("any" | "some" | "each" | "all" | "none" | number) ["of"] ["the"]
+
+qualifier = boundForm [simpleCondition] (connective qualifier)* 
+connective = "and" | "or"
+boundForm = boundSubjectForm | boundObjectForm | boundParticleForm
+boundSubjectForm = boundSubject verbPhrase [nounForm] (particle nounForm)*
+boundSubject =  anaphor |  "whose" adjective* property
+boundObjectForm = anaphor nounForm verbPhrase (particle nounForm)*
+boundParticleForm = particle anaphor nounForm verbPhrase [nounForm] (particle nounForm)*
+anaphor = "that" | "which" | "who" | "whom" | "when" | "where" 
+
+simpleCondition = "if" freeForm | "otherwise"
+
+freeForm = nounForm verbPhrase [nounForm]  (particle nounForm)*
+
+definedVerb = verbForm [postverbs]
+   /* definedVerb is the consecutive verb elements of a fact type form, less particle phrases */
+verbForm =  [preverbs] verb | (isForm | hasForm) participle 
+negatedVerb = ("never" | doForm "not") [preverbs] verb 
+    | (isForm | hasForm)  ("not" | "never") participle 
+mandatedVerb = "must" [preverbs] verb | "must" ("be" | "have") participle 
+prohibitedVerb = "must" ("not" | "never") [preverbs] verb 
+    | "must" ("not" | "never") ("be" | "have") participle
+postverbs = [optionalArticle] word word*
+preverbs = nonverb nonverb*
+nonverb = word that is not identified as a verb
+optionalArticle = [ "a" | "an" | "the" ]
+   /* optional article is a syntactic element of the fact type form that denotes the possible appearance of an article in the verbPhrase in usage */
+
+verbPhrase = (verbForm | negatedVerb | mandatedVerb | prohibitedVerb) [postverbs]
+
+orForm = ["either"] andForm ("or" andForm)* | "neither" andForm "nor" andForm 
+andForm = ["both"] freeForm ("and" freeForm)*
+equivalence = freeForm "if and only if" orForm
+conditional = ("if" | "when") orForm [ "then" ] orForm [ ("else" | "otherwise") orForm ]
+converse = orForm "only" ("if | "when") orForm
+inverse = orForm "unless" orForm
+fact = orForm | equivalence | conditional | converse | inverse
+
+rule = fact that involves a mandatedVerb or prohibitedVerb
+
+Architecture
+
+VocMain 
+  processes the call line
+  invokes VocLoad
+  initializes the dictionary
+  initializes the WordForm tables?
+  creates the Keyword entries?  
+  creates the basic verbs
+VocLoad loads the vocabulary
+
+  opens the vocabulary file, and processes the entries
+  
+

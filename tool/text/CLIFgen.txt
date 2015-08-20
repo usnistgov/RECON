@@ -1,0 +1,50 @@
+CLIF Generation Notes
+
+Simple Form corresponds to a relation of the form: (verb verbRole1 ... verbRoleN)
+where the roles have a fixed ordering chosen for the CLIF version of the verb.
+
+Each verbRole is the representative of a RolePhrase, which is either a constant or a variable.
+Role Phrases can be:
+
+- Instance:  LexicalInstance and ProperName are constants, 
+  ExtentConcept and Nominalization are unitary variables assigned to their formulations
+
+- RoleNoun: corresponds to a pre-defined variable -- the role in the defined relation
+  Quantifiers 'the' is all that makes sense, and it is ignored.
+
+- Pronoun: corresponds to an existing Variable, via a reference to another RolePhrase that defines it.
+  Quantifiers:  all, some, none, n, at least n, at most n "of them" or "of which"
+  These refer to instances of the referent role that satisfy the relation in which the referent role appears.
+  That is, these quantifiers create a set from that relation and refer to elements of that set.
+  Equivalently, these quantifiers 
+
+- TypeNoun: corresponds to a variable
+  no Quantifier -> use 'all'
+  Quantifier 'the' without a qualifier makes it a reference to another RolePhrase (and its variable)
+  Quantifier an -> new variable, existential quant
+  Quantifier 'the' with qualifier -> new variable, unitary
+  Quantifier 'all' -> new variable, universal quant
+  Quantifier 'no' -> new variable, universal quant, negates verb (or not exists x verb)  -- transform parse
+  Quantifier 'some': treat as 'an' until we see a counterexample.
+  Quantifier 'at least 1' -> new variable, existential quant
+  Quantifier 'at most 1' -> new variable, universal quant, uniqueness rule (problematic in antecedent)
+  Quantifier 'exactly 1' -> new variable, existential quant, uniqueness rule
+  Quantifiers involving 'n' refer to sets, where the set has the at least, at most, exactly variable, as above
+   the set has a cardinality constraint (and-ed) and a universal member variable has set membership and the role constraints, and is the role phrase variable. 
+
+  Modifier 'the same' refers to the variable that is the relative; possible new variable w equality anded in?
+  Modifier 'the other' without a qualifier is a reference to a variable introduced as 'other'
+  Modifier 'the other' with a qualifier -> new variable, unitary, inequality to relative is qualifier
+  Modifier 'other' -> new variable, universal, inequality to relative is qualifier, quantification per Quantifier above, no Quantifier is 'all'
+  Modifier adjectives become qualifiers using their verb form
+  Modifier 'different' always refers to a set and is usually ignored, that is, '3 shipments' and '3 different shipments' have the same meaning.
+  Modifier 'a different' is treated as 'an other' by the parser (we could move that interpretation to code generation).
+  
+ Qualifiers (and converted Modifiers) are additional simple forms.
+ Qualifiers used with existential quantification of the Role variable are And-ed with the primary form
+ Qualifiers used with universal quantification of the Role variable are If antecedents of the primary form.
+
+- PropertyNoun is a variable
+  'the' PropertyNoun without domain refers to an existing RoleVariable representing the same Property
+  PropertyNoun with domain -> new variable with qualifier for its relationship to the domain RolePhrase
+    Quantifiers and Modifiers as above.

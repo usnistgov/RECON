@@ -1,0 +1,37 @@
+TODO
+
+RECON
+- fix Interpreter problem with ChoiceNouns
+- prevent redeclaration of noun terms, importantly 'thing' and 'quantity'
+
+- fix together and 'or' groups
+- fix the use of some/any/all when extracting prohibitions and negations
+  forall x not Px vs. not forall x Px (Is obligation that not Px better?)
+  in Interpreter moveQuantification, place any modal encountered just before the junction node
+- check the impact of back references on moved existentials
+- general 'has' verb:  thing has thing
+  recognize dangling 'of' after type noun as implicit 'is had by', similarly 'whose' TypeNoun
+  and genitive TypeNoun.
+  Note: ? conflict with 'of' particles for main verb, 'of which' for qualifier
+  eliminates (house) is the house of (person), etc.
+- support property w/o link as pseudo-type as object of main verb 'has'
+  the president has a young daughter whose name is Malia. 
+    i.e. has as daughter a young girl whose ...
+  Note: requires above, property will be recognized before vocNoun, but as property only if
+  link is present.
+- support nil particles:  John gives Mary the book.
+- complete rewrite/interpretation of questions/queries
+- support infinitives beginning "to" as noun phrases, when the "to" is not a particle
+  infinitive as direct object takes as subject the sentence subject
+  infinitive as subject has the subject "one" -- the indefinite pronoun 'anyone'?
+- ? use Token.word as the content of Number, Text, etc. -- leave .term null
+- ? support either and neither as verb phrase binders
+- handle passive verbs and perfect tense
+- pronouns:
+  genitive later in group refers to first member
+  genitive not in subject refers to subject of clause
+  genitive in simple subject or first group member refers to subject/domain of parent clause (inc compound or implication)
+  pronoun refers to subject/domain of parent clause
+
+
+

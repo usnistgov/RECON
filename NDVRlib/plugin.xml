@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http:///NBVR/Vocabulary.ecore"
+            class="NBVR.Vocabulary.VocabularyPackage"
+            genModel="model/NDVR.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http:///NBVR/Grammar.ecore"
+            class="NBVR.Grammar.GrammarPackage"
+            genModel="model/NDVR.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <package
+            uri="http:///NBVR/Logic.ecore"
+            class="NBVR.Logic.LogicPackage"
+            genModel="model/NDVR.genmodel"/>
+   </extension>
+
+</plugin>

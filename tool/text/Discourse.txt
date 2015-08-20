@@ -1,0 +1,26 @@
+Discourse algorithms
+
+property term is term token
+ property term token w domain pattern is matched
+ property term token w/o domain is error/failure in Property parse
+ property term that is also noun term is replaced in the rework and is matched
+ property term that is not noun term is not replaced (proper name construction may occur)
+  -- this last case must be recognized as an alternative for the property term
+     when preceded by 'the', it is a reference to a previous occurrence of the property term
+
+noun term is a term token
+   when preceded by 'the' it is a reference to a previous occurrence of the noun term
+   or a previous occurrence of a property term homograph, whichever occurs 'first'.
+
+When seeking a previous occurrence, we use the most recent previous occurrence of the term, working backward from the current node.  The first find is considered successful.
+If the parse of that node has a referent, then this occurrence is another reference to that referent.
+If the parse of the matching node has no referent, then this occurrence is a reference to that parse.
+
+Linking anaphor references are already captured.
+
+Other pronoun references:
+  ...self in any role other than subject is a reference to the immediate subject
+  simple pronouns are references to the subject of the primary verb
+     (in a CompoundForm or ImplicationForm, the subject of the clause)
+  genitive pronouns modify properties of the immediate subject
+	(in a GroupPhrase, a genitive in position 2+ refers to position 1

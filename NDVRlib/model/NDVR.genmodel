@@ -1,0 +1,722 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/uml2/2.2.0/GenModel" modelDirectory="/NDVRlib/src"
+    modelPluginID="NDVRlib" modelName="NDVR" importerID="org.eclipse.uml2.uml.ecore.importer"
+    complianceLevel="6.0" copyrightFields="false">
+  <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/importer/org.eclipse.uml2.uml.ecore.importer">
+    <details key="DUPLICATE_FEATURES" value="DISCARD"/>
+    <details key="ANNOTATION_DETAILS" value="PROCESS"/>
+    <details key="DUPLICATE_FEATURE_INHERITANCE" value="DISCARD"/>
+    <details key="COMMENTS" value="PROCESS"/>
+    <details key="DERIVED_FEATURES" value="PROCESS"/>
+    <details key="SUPER_CLASS_ORDER" value="PROCESS"/>
+    <details key="DUPLICATE_OPERATION_INHERITANCE" value="DISCARD"/>
+    <details key="REDEFINING_OPERATIONS" value="REPORT"/>
+    <details key="INVARIANT_CONSTRAINTS" value="PROCESS"/>
+    <details key="UNION_PROPERTIES" value="REPORT"/>
+    <details key="DUPLICATE_OPERATIONS" value="DISCARD"/>
+    <details key="CAMEL_CASE_NAMES" value="IGNORE"/>
+    <details key="SUBSETTING_PROPERTIES" value="REPORT"/>
+    <details key="OPERATION_BODIES" value="IGNORE"/>
+    <details key="ECORE_TAGGED_VALUES" value="PROCESS"/>
+    <details key="REDEFINING_PROPERTIES" value="REPORT"/>
+  </genAnnotations>
+  <foreignModel>file:/C:/Users/Ed/Mytools/NBVRlib/uml/EMF/NDVR-131111a.uml</foreignModel>
+  <genPackages xsi:type="genmodel:GenPackage" prefix="NBVR" disposableProviderFactory="true"
+      ecorePackage="NBVR.ecore#/">
+    <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Vocabulary" basePackage="NBVR"
+        disposableProviderFactory="true" ecorePackage="NBVR.ecore#//Vocabulary">
+      <genEnums xsi:type="genmodel:GenEnum" typeSafeEnumCompatible="false" ecoreEnum="NBVR.ecore#//Vocabulary/FormElementKind">
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/FormElementKind/SubjectRole"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/FormElementKind/ObjectRole"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/FormElementKind/ParticleRole"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/FormElementKind/ParticleElement"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/FormElementKind/ItemElement"/>
+      </genEnums>
+      <genEnums xsi:type="genmodel:GenEnum" typeSafeEnumCompatible="false" ecoreEnum="NBVR.ecore#//Vocabulary/KeywordKind">
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/Adjunct"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/K_An"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/K_The"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/K_All"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/K_None"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/K_No"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/K_Any"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/K_One"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/K_At"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/K_Least"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/K_Less"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/K_Most"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/K_More"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/K_Than"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/K_Exactly"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/K_Many"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/K_Not"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/K_And"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/K_Or"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/K_If"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/K_Then"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/K_Else"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/K_Only"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/K_Unless"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/K_Same"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/K_Different"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/K_Other"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/K_Another"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/K_Must"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/K_May"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/K_Always"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/K_That"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/K_Whose"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/Anaphor"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/Pronoun"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/Genitive"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/K_Self"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/K_Everything"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/K_Something"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/K_Anything"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/K_Nothing"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/K_Whether"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/K_What"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/K_Which"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/K_Where"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/K_When"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/K_Why"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/K_How"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/K_This"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/K_Both"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/K_Either"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/K_Neither"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/K_Nor"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/K_Together"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/K_But"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/K_Instead"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/K_There"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/K_For"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/K_As"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/K_Of"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/KeywordKind/Function"/>
+      </genEnums>
+      <genEnums xsi:type="genmodel:GenEnum" typeSafeEnumCompatible="false" ecoreEnum="NBVR.ecore#//Vocabulary/VocItemKind">
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/VocItemKind/NounConcept"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/VocItemKind/VerbConcept"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/VocItemKind/AdjectiveConcept"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/VocItemKind/PropertyConcept"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Vocabulary/VocItemKind/ProperName"/>
+      </genEnums>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Vocabulary/Adjective"/>
+      <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="NBVR.ecore#//Vocabulary/Word">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Vocabulary/Word/base"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Vocabulary/Word/beginsTerm"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference NBVR.ecore#//Vocabulary/Word/next"/>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="NBVR.ecore#//Vocabulary/Word/isArticle"/>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="NBVR.ecore#//Vocabulary/Word/isNumber"/>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="NBVR.ecore#//Vocabulary/Word/isText"/>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="NBVR.ecore#//Vocabulary/Word/isKeyword">
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="NBVR.ecore#//Vocabulary/Word/isKeyword/kind"/>
+        </genOperations>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="NBVR.ecore#//Vocabulary/Word/isKeyword.1"/>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="NBVR.ecore#//Vocabulary/Word/isIs"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Vocabulary/WordForm">
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute NBVR.ecore#//Vocabulary/WordForm/text"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Vocabulary/WordForm/next"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Vocabulary/WordForm/word"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Vocabulary/WordForm/altWord"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Vocabulary/Term">
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"
+            createChild="false" ecoreFeature="ecore:EReference NBVR.ecore#//Vocabulary/Term/concept"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"
+            createChild="false" ecoreFeature="ecore:EReference NBVR.ecore#//Vocabulary/Term/role"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"
+            createChild="false" ecoreFeature="ecore:EReference NBVR.ecore#//Vocabulary/Term/particle"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Vocabulary/Term/words"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Vocabulary/Term/context"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Vocabulary/Term/element"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute NBVR.ecore#//Vocabulary/Term/text"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="NBVR.ecore#//Vocabulary/VocabularyItem">
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference NBVR.ecore#//Vocabulary/VocabularyItem/formulations"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Vocabulary/VocabularyItem/base"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference NBVR.ecore#//Vocabulary/VocabularyItem/next"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference NBVR.ecore#//Vocabulary/VocabularyItem/terms"/>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="NBVR.ecore#//Vocabulary/VocabularyItem/isPrimitive"/>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="NBVR.ecore#//Vocabulary/VocabularyItem/getKind"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Vocabulary/Formulation">
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference NBVR.ecore#//Vocabulary/Formulation/form"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute NBVR.ecore#//Vocabulary/Formulation/text"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute NBVR.ecore#//Vocabulary/Formulation/language"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference NBVR.ecore#//Vocabulary/Formulation/elements"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"
+            createChild="false" ecoreFeature="ecore:EReference NBVR.ecore#//Vocabulary/Formulation/concept"/>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="NBVR.ecore#//Vocabulary/Formulation/isStructured"/>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="NBVR.ecore#//Vocabulary/Formulation/addElement">
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="NBVR.ecore#//Vocabulary/Formulation/addElement/elt"/>
+        </genOperations>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="NBVR.ecore#//Vocabulary/FormulationForm">
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"
+            createChild="false" ecoreFeature="ecore:EReference NBVR.ecore#//Vocabulary/FormulationForm/formulation"/>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="NBVR.ecore#//Vocabulary/FormulationForm/isStructured"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Vocabulary/VerbRole">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Vocabulary/VerbRole/range"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"
+            createChild="false" ecoreFeature="ecore:EReference NBVR.ecore#//Vocabulary/VerbRole/verb"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference NBVR.ecore#//Vocabulary/VerbRole/term"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute NBVR.ecore#//Vocabulary/VerbRole/isRange"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Vocabulary/VocNoun">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Vocabulary/VocNoun/isAVerb"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference NBVR.ecore#//Vocabulary/VocNoun/predicate"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute NBVR.ecore#//Vocabulary/VocNoun/massNoun"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Vocabulary/VocVerb">
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute NBVR.ecore#//Vocabulary/VocVerb/arity"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference NBVR.ecore#//Vocabulary/VocVerb/roles"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference NBVR.ecore#//Vocabulary/VocVerb/form"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference NBVR.ecore#//Vocabulary/VocVerb/predicate"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Vocabulary/SyntaxForm">
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference NBVR.ecore#//Vocabulary/SyntaxForm/elements"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute NBVR.ecore#//Vocabulary/SyntaxForm/isAuxForm"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"
+            createChild="false" ecoreFeature="ecore:EReference NBVR.ecore#//Vocabulary/SyntaxForm/property"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute NBVR.ecore#//Vocabulary/SyntaxForm/text"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"
+            createChild="false" ecoreFeature="ecore:EReference NBVR.ecore#//Vocabulary/SyntaxForm/verb"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="NBVR.ecore#//Vocabulary/FormElement">
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute NBVR.ecore#//Vocabulary/FormElement/kind"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"
+            createChild="false" ecoreFeature="ecore:EReference NBVR.ecore#//Vocabulary/FormElement/form"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Vocabulary/VocProperty">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Vocabulary/VocProperty/domain"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Vocabulary/VocProperty/range"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Vocabulary/VocProperty/verb"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference NBVR.ecore#//Vocabulary/VocProperty/propertyForm"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Vocabulary/NumberWord">
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute NBVR.ecore#//Vocabulary/NumberWord/value"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute NBVR.ecore#//Vocabulary/NumberWord/decimal"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Vocabulary/VocUnit">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Vocabulary/VocUnit/quantityKind"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Vocabulary/VocName">
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="NBVR.ecore#//Vocabulary/VocName/isUnit"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Vocabulary/VocAdjective">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Vocabulary/VocAdjective/domain"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Vocabulary/VocAdjective/verb"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Vocabulary/Particle">
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference NBVR.ecore#//Vocabulary/Particle/role"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference NBVR.ecore#//Vocabulary/Particle/term"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Vocabulary/RoleElement">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Vocabulary/RoleElement/role"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute NBVR.ecore#//Vocabulary/RoleElement/slot"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Vocabulary/Keyword">
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute NBVR.ecore#//Vocabulary/Keyword/kind"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Vocabulary/ItemElement">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Vocabulary/ItemElement/term"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Vocabulary/Adjunct"/>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Vocabulary/Noun">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Vocabulary/Noun/plural"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Vocabulary/Noun/altPlural"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Vocabulary/Name"/>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Vocabulary/Verb">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Vocabulary/Verb/singular"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Vocabulary/Verb/plural"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Vocabulary/Verb/past"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Vocabulary/Verb/progressive"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Vocabulary/Verb/perfective"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Vocabulary/Verb/altPast"/>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="NBVR.ecore#//Vocabulary/Verb/isProgressive">
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="NBVR.ecore#//Vocabulary/Verb/isProgressive/wf"/>
+        </genOperations>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="NBVR.ecore#//Vocabulary/Verb/isPast">
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="NBVR.ecore#//Vocabulary/Verb/isPast/wf"/>
+        </genOperations>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="NBVR.ecore#//Vocabulary/Verb/isPerfective">
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="NBVR.ecore#//Vocabulary/Verb/isPerfective/wf"/>
+        </genOperations>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Vocabulary/Dictionary">
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference NBVR.ecore#//Vocabulary/Dictionary/firstWord"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Vocabulary/StringWord"/>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Vocabulary/Definition"/>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Vocabulary/DateTime"/>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Vocabulary/Terminology">
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference NBVR.ecore#//Vocabulary/Terminology/firstItem"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Vocabulary/Terminology/lastItem"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Vocabulary/IsVerb"/>
+    </nestedGenPackages>
+    <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Grammar" basePackage="NBVR"
+        disposableProviderFactory="true" ecorePackage="NBVR.ecore#//Grammar">
+      <genEnums xsi:type="genmodel:GenEnum" typeSafeEnumCompatible="false" ecoreEnum="NBVR.ecore#//Grammar/QuantifierKind">
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/QuantifierKind/Q_An"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/QuantifierKind/Q_The"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/QuantifierKind/Q_All"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/QuantifierKind/Q_No"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/QuantifierKind/Q_Any"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/QuantifierKind/AtLeast1"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/QuantifierKind/AtMost1"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/QuantifierKind/Exactly1"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/QuantifierKind/AtLeastN"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/QuantifierKind/AtMostN"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/QuantifierKind/ExactlyN"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/QuantifierKind/LessThanN"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/QuantifierKind/MoreThanN"/>
+      </genEnums>
+      <genEnums xsi:type="genmodel:GenEnum" typeSafeEnumCompatible="false" ecoreEnum="NBVR.ecore#//Grammar/InstanceKind">
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/InstanceKind/Name"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/InstanceKind/Number"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/InstanceKind/String"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/InstanceKind/Quantity"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/InstanceKind/Statement"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/InstanceKind/Question"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/InstanceKind/Query"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/InstanceKind/Concept"/>
+      </genEnums>
+      <genEnums xsi:type="genmodel:GenEnum" typeSafeEnumCompatible="false" ecoreEnum="NBVR.ecore#//Grammar/Connective">
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/Connective/And"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/Connective/Or"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/Connective/Nor"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/Connective/Xor"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/Connective/If"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/Connective/Unless"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/Connective/OnlyIf"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/Connective/Eqv"/>
+      </genEnums>
+      <genEnums xsi:type="genmodel:GenEnum" typeSafeEnumCompatible="false" ecoreEnum="NBVR.ecore#//Grammar/Modality">
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/Modality/None"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/Modality/Negation"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/Modality/Obligation"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/Modality/Prohibition"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/Modality/Permission"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/Modality/PermittedNot"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/Modality/Possibility"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/Modality/Impossibility"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/Modality/Preference"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/Modality/Antipreference"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/Modality/Nonpreference"/>
+      </genEnums>
+      <genEnums xsi:type="genmodel:GenEnum" typeSafeEnumCompatible="false" ecoreEnum="NBVR.ecore#//Grammar/PhraseType">
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/PhraseType/Instance"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/PhraseType/Group"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/PhraseType/Query"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/PhraseType/TypeNoun"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/PhraseType/Property"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/PhraseType/RoleNoun"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/PhraseType/Pronoun"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/PhraseType/Anaphor"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/PhraseType/Interrogative"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/PhraseType/LocalName"/>
+      </genEnums>
+      <genEnums xsi:type="genmodel:GenEnum" typeSafeEnumCompatible="false" ecoreEnum="NBVR.ecore#//Grammar/GroupKind">
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/GroupKind/Joint"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/GroupKind/All"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/GroupKind/Choice"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/GroupKind/Neither"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/GroupKind/Instead"/>
+      </genEnums>
+      <genEnums xsi:type="genmodel:GenEnum" typeSafeEnumCompatible="false" ecoreEnum="NBVR.ecore#//Grammar/SentenceType">
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/SentenceType/Other"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/SentenceType/Simple"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/SentenceType/Compound"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/SentenceType/Implication"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/SentenceType/Equivalence"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/SentenceType/Domain"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/SentenceType/Modal"/>
+      </genEnums>
+      <genEnums xsi:type="genmodel:GenEnum" typeSafeEnumCompatible="false" ecoreEnum="NBVR.ecore#//Grammar/QueryKind">
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/QueryKind/Any"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/QueryKind/What"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/QueryKind/Whether"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/QueryKind/Why"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/QueryKind/How"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/QueryKind/Where"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/QueryKind/When"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/QueryKind/HowMany"/>
+      </genEnums>
+      <genEnums xsi:type="genmodel:GenEnum" typeSafeEnumCompatible="false" ecoreEnum="NBVR.ecore#//Grammar/ElementKind">
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/ElementKind/None"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/ElementKind/Sentence"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/ElementKind/Qualifier"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/ElementKind/Quantifier"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/ElementKind/Condition"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/ElementKind/Modifier"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/ElementKind/Noun"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/ElementKind/Group"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/ElementKind/Query"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/ElementKind/Instance"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/ElementKind/Property"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/ElementKind/Pronoun"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Grammar/ElementKind/Role"/>
+      </genEnums>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Grammar/GroupPhrase">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Grammar/GroupPhrase/members"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute NBVR.ecore#//Grammar/GroupPhrase/kind"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="NBVR.ecore#//Grammar/RolePhrase">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Grammar/RolePhrase/rolePlayed"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Grammar/RolePhrase/variable"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Grammar/RolePhrase/referent"/>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="NBVR.ecore#//Grammar/RolePhrase/getType"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="NBVR.ecore#//Grammar/SimpleNounPhrase"/>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Grammar/Condition">
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute NBVR.ecore#//Grammar/Condition/otherwise"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Grammar/Condition/qualifier"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Grammar/Condition/antecedent"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Grammar/SimpleQualifier">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Grammar/SimpleQualifier/chain"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Grammar/SimpleQualifier/boundForm"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Grammar/SimpleQualifier/condition"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="NBVR.ecore#//Grammar/Qualifier">
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="NBVR.ecore#//Grammar/Qualifier/isSimple"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Grammar/QualifierChain">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Grammar/QualifierChain/qualifiers"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="NBVR.ecore#//Grammar/Sentence">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Grammar/Sentence/domain"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Grammar/Sentence/rewrites"/>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="NBVR.ecore#//Grammar/Sentence/getType"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Grammar/TypeNoun">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Grammar/TypeNoun/noun"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="NBVR.ecore#//Grammar/ModifiedTerm">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Grammar/ModifiedTerm/quantifier"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Grammar/ModifiedTerm/modifiers"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Grammar/ModifiedTerm/qualifiers"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Grammar/Quantifier">
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute NBVR.ecore#//Grammar/Quantifier/kind"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute NBVR.ecore#//Grammar/Quantifier/count"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Grammar/Quantifier/quantity"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Grammar/Quantity">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Grammar/Quantity/factor"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Grammar/Quantity/dimension"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="NBVR.ecore#//Grammar/Instance">
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="NBVR.ecore#//Grammar/Instance/getKind"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Grammar/Dimension">
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute NBVR.ecore#//Grammar/Dimension/exponent"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Grammar/Dimension/unit"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Grammar/Modifier">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Grammar/Modifier/adjective"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute NBVR.ecore#//Grammar/Modifier/kind"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Grammar/Modifier/relative"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Grammar/PropertyNoun">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Grammar/PropertyNoun/property"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Grammar/PropertyNoun/domain"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Grammar/PropertyNoun/expansion"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Grammar/RoleNoun">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Grammar/RoleNoun/role"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Grammar/VerbPhrase">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Grammar/VerbPhrase/verb"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute NBVR.ecore#//Grammar/VerbPhrase/modality"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute NBVR.ecore#//Grammar/VerbPhrase/negated"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Grammar/PartPhrase">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Grammar/PartPhrase/partRole"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Grammar/PartPhrase/particle"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Grammar/SimpleForm">
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference NBVR.ecore#//Grammar/SimpleForm/verb"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference NBVR.ecore#//Grammar/SimpleForm/partPhrases"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Grammar/SimpleForm/subject"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Grammar/SimpleForm/object"/>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="NBVR.ecore#//Grammar/SimpleForm/getModality"/>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="NBVR.ecore#//Grammar/SimpleForm/isNegated"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Grammar/ImplicationForm">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Grammar/ImplicationForm/antecedent"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Grammar/ImplicationForm/consequent"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Grammar/ImplicationForm/alternative"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute NBVR.ecore#//Grammar/ImplicationForm/kind"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Grammar/CompoundForm">
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute NBVR.ecore#//Grammar/CompoundForm/kind"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Grammar/CompoundForm/statements"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Grammar/LexicalInstance">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Grammar/LexicalInstance/word"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="NBVR.ecore#//Grammar/Nominalization">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Grammar/Nominalization/sentence"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Grammar/Statement"/>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Grammar/Question">
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute NBVR.ecore#//Grammar/Question/query"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Grammar/Question/queryPhrase"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Grammar/QueryPhrase">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Grammar/QueryPhrase/domain"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute NBVR.ecore#//Grammar/QueryPhrase/query"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Grammar/QueryPhrase/question"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Grammar/ProperName">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Grammar/ProperName/name"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Grammar/Pronoun">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Grammar/Pronoun/keyword"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Grammar/Intension">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Grammar/Intension/concept"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Grammar/Parse"/>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Grammar/DomainForm">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Grammar/DomainForm/statement"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute NBVR.ecore#//Grammar/DomainForm/modality"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Grammar/LocalName">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Grammar/LocalName/word"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Grammar/LocalName/next"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="NBVR.ecore#//Grammar/ParseElement">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Grammar/ParseElement/parent"/>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="NBVR.ecore#//Grammar/ParseElement/getElementKind"/>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="NBVR.ecore#//Grammar/ParseElement/isSentence"/>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="NBVR.ecore#//Grammar/ParseElement/isInstance"/>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="NBVR.ecore#//Grammar/ParseElement/isRolePhrase"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Logic" basePackage="NBVR"
+        disposableProviderFactory="true" ecorePackage="NBVR.ecore#//Logic">
+      <genEnums xsi:type="genmodel:GenEnum" typeSafeEnumCompatible="false" ecoreEnum="NBVR.ecore#//Logic/PropositionKind">
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Logic/PropositionKind/Relation"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Logic/PropositionKind/Connection"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Logic/PropositionKind/Implication"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Logic/PropositionKind/Negation"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Logic/PropositionKind/Quantification"/>
+        <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="NBVR.ecore#//Logic/PropositionKind/Modal"/>
+      </genEnums>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Logic/Variable">
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute NBVR.ecore#//Logic/Variable/name"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Logic/Variable/source"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Logic/Variable/constraint"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Logic/Variable/uses"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Logic/Variable/range"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Logic/Variable/set"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Logic/Quantification">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Logic/Quantification/scope"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute NBVR.ecore#//Logic/Quantification/kind"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute NBVR.ecore#//Logic/Quantification/unique"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Logic/Quantification/variable"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="NBVR.ecore#//Logic/Proposition">
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute NBVR.ecore#//Logic/Proposition/text"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Logic/Proposition/owner"/>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="NBVR.ecore#//Logic/Proposition/getType"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Logic/Relation">
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference NBVR.ecore#//Logic/Relation/arguments"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Logic/Relation/predicate"/>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="NBVR.ecore#//Logic/Relation/getArgument"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Logic/Argument">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Logic/Argument/next"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Logic/Argument/variable"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Logic/Argument/phrase"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Logic/Argument/role"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference NBVR.ecore#//Logic/Argument/constant"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"
+            createChild="false" ecoreFeature="ecore:EReference NBVR.ecore#//Logic/Argument/relation"/>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="NBVR.ecore#//Logic/Argument/hasNext"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="NBVR.ecore#//Logic/Constant">
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute NBVR.ecore#//Logic/Constant/kind"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Logic/Set">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Logic/Set/extent"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Logic/Set/variable"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Logic/ExtentConstant">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Logic/ExtentConstant/set"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Logic/Connection">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Logic/Connection/operands"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute NBVR.ecore#//Logic/Connection/kind"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Logic/Implication">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Logic/Implication/antecedent"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Logic/Implication/consequent"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Logic/Modal">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Logic/Modal/scope"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute NBVR.ecore#//Logic/Modal/kind"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Logic/Negation">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Logic/Negation/scope"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Logic/RoleVariable">
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"
+            createChild="false" ecoreFeature="ecore:EReference NBVR.ecore#//Logic/RoleVariable/predicate"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Logic/RoleVariable/role"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Logic/ValueConstant">
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute NBVR.ecore#//Logic/ValueConstant/name"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Logic/NominalConstant">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference NBVR.ecore#//Logic/NominalConstant/proposition"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Logic/QuantityValue">
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute NBVR.ecore#//Logic/QuantityValue/factor"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute NBVR.ecore#//Logic/QuantityValue/unit"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="NBVR.ecore#//Logic/Predicate">
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference NBVR.ecore#//Logic/Predicate/variables"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute NBVR.ecore#//Logic/Predicate/name"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"
+            createChild="false" ecoreFeature="ecore:EReference NBVR.ecore#//Logic/Predicate/noun"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"
+            createChild="false" ecoreFeature="ecore:EReference NBVR.ecore#//Logic/Predicate/verb"/>
+      </genClasses>
+    </nestedGenPackages>
+    <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="UMLStandardProfile"
+        basePackage="NBVR" disposableProviderFactory="true" ecorePackage="NBVR.ecore#//UMLStandardProfile"/>
+  </genPackages>
+</genmodel:GenModel>

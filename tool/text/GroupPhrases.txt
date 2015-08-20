@@ -1,0 +1,98 @@
+Group phrases
+
+the behavior of instances Zi or Xi is the same as the behavior of all X or all Z?
+
+All x and all y verb all z: 
+all x and all y verb Zs = all X verb Zs and all Y verb (any) Zs
+all x and all y verb some Z = some Z is verbed by all X and all Y?
+all Z verb all x and all y
+some Z verbs all x and all y: there is a Z that verbs all X and that verbs all Y
+All x and some y verb all z
+All x and some y verb some z = some Z is verbed by, or each X verbs some Z and some Y verbs some Z
+all x and some y verb Zs
+all z verb all x and some y
+some Z verbs all x and some y = there is a Z that verbs all X and that verbs some Y
+some X and some Y verb all Z
+Some x and some y verb some z: some Z is verbed by some x and some y?
+some x and some y verb Zs
+all Z verbs some x and some y
+some Z verbs some x and some y
+all X and some y verb each z that they encounter
+all X give some y and some z to each Q
+-> if the group is the subject, copy, quantify, resolve pronouns, and
+ ->else first quantify (DomainForm) the non-group operands, then copy the interior clause and quantify the group operand in each
+Note: this may misinterpret (all x and all y) verb some z; that must be rewritten to make the z the subject
+
+All x or all y verb all z
+all x or all y verb Zs = ? either all x verb zs or all y verb zs
+each Z verbs all x or all y
+some Z verbs all x or all y
+Zi verbs all x or all y
+All x or some y verb some z =? some z is verbed by all x or some y
+Each Z verbs all x or some y: for all Z, z verbs all x or z verbs some y
+Some Z verbs all x or some y
+Zi verbs all x or some y
+Some x or some y verb some Z (there is a Z that is verbed by some x or some y)
+Some x or some y verb all Z
+Some x or some y verbs Zs
+Each Z verbs some x or some y
+Some Z verbs some x or some y
+Zi verbs some x or some y
+-> if the group is the subject, copy, quantify, resolve, or
+-> else, quantify all other then copy the scope, quantify, resolve, or
+-> special case:  when all group members are either existential or instances, create 'thing that is ... or that is ...
+
+Neither all x nor all y do verb
+Z verbs neither all x nor all y
+Neither All x nor some y do verb
+Z verbs neither all x nor some y
+Neither Some x nor  some y do verb
+each Z verbs neither some x nor some y = each Z verbs no thing that is an x or that is a y
+    or = each Z verbs no x and each Z verbs no Y
+some Z verbs neither some x nor some y with some Q
+all Z verb neither xs nor ys with Qs:  all Z verb no X with any Q and all Z verb no Y with any Q
+-> first quantify non-group, then negate the quantifier for each group member whilst copying, then and!
+    not all x V -> exists x not V
+    not any x V -> no x V
+    not some x V -> no x V
+    not no x V -> some x V (?)
+    not quantity x V = the quantity of x that V is not q
+    not instance V = not (instance V)
+->special case:  if all members are existential or instances, create thing that is .. or that is ..., and quantify it with 'no'
+
+All x but not all y V some Z
+Some x but no y V some Z
+All z V some X but not some Y
+Some Z verb all x but not all Y
+Some Z verb all x instead of all Y = above?
+Some Z verb all x but no Y
+-> but without not is and
+-> interpret but not quantifier y as 'and 'not quantifier' (above) y
+
+X and Y together verb some/all Z = the set whose members are X and Y verb some/all Z
+all X and all Y together verb some/all Z = ditto, all X and all Y, i.e., such that all X are members and all Y are members, and nothing that 'is not an' X and 'is not a' Y is a member.
+all X and some Ys together verb Z = ditto with exists Y
+is that the set where ...? No, the set S has an axiomatic characterization: forall S, if set S, and forall x if X x then isMember x S, etc.  Note also that this is not iota S: if there is an existential, S is not unique.
+
+A is not a B
+A does not verb a B
+A does not verb any B
+Each A does not verb a B, forall a, exists b, not a verbs b
+Each A does not verb any B: forall a, forall b, not a verbs b
+Each A verbs a B:  forall a, exists b, a verbs b
+Each A does not verb a B with a C:  forall a, forall b, forall c, not a verbs b with c
+If any does not verb a B, then xxx:  If exists a, forall b, not a verbs b
+
+rule is: subject (a) not (exists  B, exists c, a verbs b with c)
+and:  a is not a B:  not (exists B) a = b
+(If there is some counterexample, it may be the result of moving a quantifier)
+
+Each A that v1s a B does not v2 the B: For all a, if (A a) and (exists b) (v1 a b), then not (v2 a b) => forall a, exists b, if (v1 a b), then not (v2 a b)!  Wrong!  But the problem is inverting the existential because of the back reference.
+
+Each A that v1s a B does not v2 any C:  forall a, if (exists b)(v1 a b) then (forall c)(not v2 a c)!  Right!  and if the forall c is moved there is still no problem.
+
+If some A v1s a B, then the B v2s some C: again existential->all and move B, but NOT the existential A!!!  Exists a forall b, if (v1 a b) then exists c (v2 b c)!  Wrong!  The exists b is inverted to forall b and moved outside the if, while the (exists a) remains within.  (The problem here is whether the qualified B depends on the A:  If some x is an A, and there is a B that v2s the x, then the B v3s some C.  If (exists (x)(and (A x) (exists (b) (v2 b x))) then 
+(exists (c) (v3 b c)) => forall b if and (B b)(exists x (and (A x)(v2 b x)) then if (true) then ...
+
+If every A v1s some B, then the B does not v2 any C:
+  Forall b, if forall a (v1 a b), then (not (exists c) (v2 b c)!!!

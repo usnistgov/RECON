@@ -1,0 +1,338 @@
+// Canonical Quantities file
+$V (vocabulary file)
+
+//arithmetic
+W n1
+W n2
+T number
+V (number:sum) = (number:n1) + (number:n2)
+V (number:difference) = (number:n1) - (number:n2)
+V (number:product) = (number:n1) * (number:n2)
+V (number:quotient) = (number:n1) / (number:n2)
+
+T unit of measure
+S measurement unit
+D a reference quantity of a given quantity kind, defined and adopted by convention
+
+W SI
+T SI system of units
+T SI unit
+D a measurement unit that is defined by the SI system of units
+
+//T quantity
+T mass
+T length
+T volume
+T time
+T duration
+T temperature
+T area
+T angle
+T weight
+
+P (SI unit) is the standard unit () of (quantity)
+
+P (mass) is the mass () of (thing)
+P (length) is the length () of (thing)
+P (time) is the duration () of (thing)
+P (volume) is the volume () of (thing)
+P (area) is the area () of (thing)
+P (temperature) is the temperature () of (thing)
+P (angle) is the angle () of (thing)
+V (angle) is the angle between (thing:t1) and (thing:t2)
+P (weight) is the weight () of (thing)
+
+// length units
+W m
+WN metre
+U m : length
+S metre
+S meter
+. meter is the standard unit of length
+
+W cm
+WN centimetre
+U cm : length
+S centimeter
+S centimetre
+R 0.01 m
+
+W mm
+WN millimetre
+U mm : length
+S millimeter
+S millimetre
+R 0.001 m
+
+W µm
+U µm : length
+S micron
+R 1.0E-6 m
+
+W nm
+WN nanometre
+U nm : length
+S nanometer
+S nanometre
+R 1.0E-9 m
+
+W km
+WN kilometre
+U km : length
+S kilometre
+S kilometer
+R 1000 m
+
+U inch : length
+S in
+R 2.54 cm
+
+W ft
+U foot : length
+S ft
+R 12 inches
+
+W yd
+U yard : length
+S yd
+R 3 ft
+
+W mi
+U mile : length
+S statute mile
+S mi
+R 5280 ft
+
+W n
+U nautical mile : length
+S n mi
+R 1852 m
+
+// mass units
+W g
+U gram : mass
+S g
+D the mass of one cc of water at standard temperature and pressure
+. gram is the standard unit of mass
+
+W mg
+U mg : mass
+S milligram
+R .001 g
+
+W mcg
+W µg
+U microgram : mass
+S mcg
+S µg
+R 1.0E-6 g
+
+W ng
+U ng : mass
+S nanogram
+R 1.0E-9 g
+
+W kg
+U kg : mass
+S kilogram
+R 1000 grams
+
+W t
+U metric ton : mass
+S t
+R 1000 kg
+
+W lb
+U lb : weight
+S pound
+
+// time units
+WN sec secs
+W s
+U sec : duration
+S second
+S s
+. second is the standard unit of time
+
+W msec
+W ms
+U ms : duration
+S millisecond
+S msec
+R .001 sec
+
+W µsec
+W µs
+U microsecond : duration
+S µsec
+S µs
+R 1.0E-6 sec
+
+W nsec
+W ns
+U ns : duration
+S nanosecond
+S nsec
+R 1.0E-9 sec
+
+W min
+U min : duration
+S minute
+R 60 sec
+
+W hr
+U hour : duration
+S hr
+R 3600 sec
+
+W da
+U day : duration
+S da
+R 24 hours
+
+W wk
+U week : duration
+S wk
+R 7 days
+
+W mo
+U month : duration
+S mo
+
+W yr
+U year : duration
+S yr
+
+// area units
+W sq
+U square metre : area
+S sq m
+S square meter
+R 1 m^2
+
+// because it collides with 'are' and 'a', the 'are' unit is a pain
+U ares : area
+R 100 sq m
+
+W ha
+U hectare : area
+S ha
+R 10000 sq m
+
+U sq cm : area
+S square centimetre
+S square centimeter
+R .0001 sq m
+
+// volume units
+U cubic meter : volume
+S cubic metre
+S stere
+D the volume of a space that is 1m on each side
+R 1 m^3
+
+W cc
+U cc : volume
+S cubic centimeter
+S cubic centimetre
+R 1 cm^3
+
+WN litre
+W l
+U litre : volume
+S liter
+S l
+R 1000 cc
+. litre is the standard unit of volume
+
+WN millilitre
+W ml
+U ml : volume
+S millilitre
+S milliliter
+R 1 cc
+
+W gal
+U gallon : volume
+S gal
+R a volume that is equal to 3.75 litres
+
+W qt
+U quart : volume
+S qt
+R 0.25 gal
+
+W pt
+U pint : volume
+R 0.5 qt
+
+W oz
+U ounce : volume
+S oz
+R 0.0625 pt
+
+// temperature units
+N Kelvin
+W K
+W °K
+U kelvin : temperature
+S degrees Kelvin
+S °K
+S K
+. kelvin is the standard unit of temperature
+
+N Celsius
+W C
+W °C
+U °C : temperature
+S degrees Celsius
+S Celsius
+S C
+
+N Fahrenheit
+W F
+W °F
+U °F : temperature
+S degrees Fahrenheit
+S Fahrenheit
+S F
+
+// angle
+N pi
+D the ratio of the circumference of a circle to its diameter
+
+WN rad rads
+U radian : angle
+S rad
+. radian is the standard unit of angle
+
+W °
+U ° : angle
+S degree
+. 1 degree = pi * 1/180 rad
+
+// the following have been hard-coded into the RECON initialization
+//V (quantity:q1) equals (quantity:q2)
+//F (q1) is equal () to (q2)
+//F (q1) is the same as (q2)
+. For each quantity:q1, for each quantity:q2, q1 is equal to q2 if and only if q2 is equal to q1.
+
+//V (quantity: q1) is less than (quantity: q2)
+//F (q2) is greater than (q1)
+//F (q1) is fewer than (q2)
+//F (g2) is more than (q1)
+
+//V (quantity: q1) is less or equal (quantity: q2)
+//F (q1) is less than or equal () to (q2)
+//F (q2) is greater than or equal () to (q1)
+//F (q1) is at most (q2)
+//F (q2) is at least (q1)
+//R q1 is less than q2 or q1 equals q2
+// restated as:
+. For each quantity:q1, for each quantity:q2, q1 is less or equal q2 
+  if and only if q1 is less than q2 or q1 equals q2
+
+
+
+
+

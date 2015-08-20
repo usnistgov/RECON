@@ -1,0 +1,189 @@
+
+RECON Representation of Sample Rules
+
+Legend: 
+T xxx declares a type noun (general noun concept)
+S xxx declares a synonym for the previous term
+V <verb concept wording> declares a verb
+F <verb concept wording> declares a synonymous form
+  a verb concept wording has the form
+  (<role>) <verb symbol> (<role>) <particle> (<role>) ...
+  where everything after the verb symbol is optional
+  () can separate a particle from the verb symbol without a role
+  <role> has the form:  <type> : <rolename>
+  where the rolename is the same as the range <type> if it is omitted
+A (<type>) is <adjective> declares an adjective
+P (<range role>) is the <property> () <link> (<domain role>)
+   declares a property verb and the noun form (everything after "is")
+   RECON automatically generates 
+   (<domain>) has <property> (<range>)
+D ... provides a natural language definition of a concept
+R ... provides a RECON English formulation of the concept
+// is a comment.  It is used below to display the original text
+
+
+// Wash trading is buying and selling with no change in beneficial ownership.  
+P (situation) is a buying () of a (thing:property)
+D the situation is where a buyer takes ownership of the property from a seller
+P (situation) is a selling () of a (thing:property)
+D situation where the seller of the property transfers ownership to a buyer in exchange for some compensation
+V (party) has beneficial ownership () of (thing)
+D the party has the right to and use of the thing
+V (thing) changes
+P (situation) is change () in (thing)
+R situation where the thing changes
+
+T wash trading
+S wash trade
+// Note: the following involves every trick expression in RECON
+R both a buying of a thing and a selling of the thing together where there is no change in what party has beneficial ownership of the thing
+
+// Wash trading is manipulative and deceptive. 
+A (activity) is manipulative and deceptive
+. Wash trading is manipulative and deceptive.
+
+// A bona-fide transaction has two distinct counterparties that are not under common control.
+T party
+T transaction
+V (party) engages () in (activity)
+P (party) is party () to (transaction)
+// this will also define (transaction) has party (party)
+R the party engages in the transaction
+WN counterparty counterparties
+T counterparty
+R a party who engages in a transaction with another party
+P (thing:property) is the subject () of a (transaction)
+V (party) controls (thing)
+V (group) is under common control
+R there is one party that controls each member of the group
+A (transaction) is bona-fide
+R the transaction has two counterparties that together are not under common control
+
+// A transaction with no change in beneficial ownership is not bona-fide.
+.  Any transaction where there is no change in what party has beneficial ownership of the subject of the transaction is not bona-fide.
+
+// Wash trades are not bona-fide transactions unless they qualify for the FINRA Self-Trade exemption under FINRA Rule 5210.
+N FINRA
+N FINRA Rule 5210
+N FINRA Self Trade exemption
+V (rule:case) is under (rule)
+D the case is a special case for certain provisions of the rule
+V (situation) qualifies () for (rule)
+F (rule) applies () to (situation)
+. Wash trades are not bona fide transactions unless they qualify for the FINRA Self Trade exemption that is under FINRA Rule 5210.
+
+// FINRA Rule 5210 prohibits members from publishing any quotations and transactions that are manipulative and deceptive. 
+T organization
+V (rule) prohibits (activity)
+V (party) is member () of (organization)
+T quotation
+V (party) publishes (quotation)
+. FINRA Rule 5210 prohibits that a member of FINRA publishes any quotation that is manipulative and deceptive or engages in any transaction that is manipulative and deceptive.
+
+// There is no change in beneficial ownership if the trading is between accounts that have the same registered owner, or between accounts controlled by the same entity.
+T account
+P (party) is the registered owner () of (thing)
+P (transaction) is trading of (thing)
+V (transaction) is between (account:1) and (account:2)
+. If the trading of a thing is between an account:1 and an account:2 and either account:1 and account:2 have the same registered owner or account:1 and account:2 are controlled by the same party, the beneficial ownership of the thing does not change.
+
+// For the purposes of this Rule, the term "quotation" shall include any bid or offer or any formula, such as "bid wanted" or "offer wanted." 
+T term
+V (term) applies to (thing)
+T (bid)
+T (offer)
+T (formula)
+V (thing:1) is similar to (thing:2)
+. The term that is "quotation" applies to both any bid and any offer and any formula that is similar to either "bid wanted" or "offer wanted".
+
+// Suspected Wash Trading is buys and sells between accounts with the same registered owner, or same controlling party of the same security in about the same quantity at the about the order and execution time and at about the same price.  
+// The percentage difference in quantity, execution time, and prices between the related buys and sells is configurable.  
+*** RECON cannot really do "about the same".  we would have to make a special case for "about the same" that uses the same parsing algorithm as "same" and "other", but what would the mathematical relation be?
+T time interval
+T occurrence
+V (occurrence) occurs at (time interval)
+T (time interval) is order time () of (transaction)
+T (time interval) is execution time () of (transaction)
+T (thing:1) is about the same as (thing:2)
+T security
+// the following is an invented intermediate concept to allow 'suspected wash trading' to have a RECON formulation.  We don't parenthesize ands/ors and thats.
+T possible wash transaction
+R both a buying that is of a quantity of a security and that has order time:1 and that has execution time:2 and that has price:3 and a selling that is of the same quantity of the security  and that has the same order time and that has the same execution time and that has a price that is about the same as price:3
+T Suspected Wash Trading
+R a possible wash transaction that is between an account:1  and an account:2 that has the same registered owner or that is controlled by the same party
+
+// Self-Trades are wash trades that are not prohibited if the members, or broker-dealer, have policies and procedures in place that are reasonable designed to review their trading activity for, and prevent self-trades from happening due to a single, or multiple related algorithms, and or trading desks.
+*** This is a lot of soft verbiage that introduces 9 different concepts.  Some of these terms are declared later, where it was clear how to use them.
+T self-trade
+R transaction that ???
+
+// Transactions resulting from orders that originate from unrelated algorithms or separate and distinct trading strategies within the same firm would generally be considered bona fide self-trades. 
+T algorithm
+T trading strategy
+T order
+V (thing:1) is related () to (thing:2)
+V (thing:1) is unrelated () to (thing:2)
+R thing:1 is not related to thing:2
+V (group) is unrelated
+R each thing that is in the group is unrelated to each other thing that is in the group
+V (thing:1) is separate and distinct () from (thing:2)
+T firm
+R organization
+V (transaction) results () from (order)
+V (order) originates () from (thing)
+. If a firm engages in a transaction:1 that results from an order that originates from an algorithm:1 or that originates  from a trading strategy:1 and the firm engages in a transaction:2 that results from an order that originates from an algorithm:2 or originates from a trading strategy:2 and algorithm:1 is unrelated to algorithm:2 and trading strategy:1 is separate and distinct from trading strategy:2, and both transaction:1 and transaction:2 together are a self-trade, then the self-trade is bona fide.
+
+// Algorithms or trading strategies within the most discrete unit of an effective system of internal controls at a member firm are presumed to be related.
+T organizational unit
+R organization that is part of another organization
+P (organization) is an organizational unit () of (organization)
+V (algorithm) is used within (organizational unit)
+V (trading strategy) is used within (organizational unit)
+T effective system of internal controls
+P (organizational unit) is the most discrete unit ( ) of an (effective system of internal controls) 
+. If algorithm:1 is used within the most discrete unit of an effective system of internal controls ), and algorithm:2 is used within the same organizational unit, then algorithm:1 is related to algorithm:2. 
+. If trading strategy:1 is used within the most discrete unit of an effective system of internal controls, and trading strategy:2 is used within the same organizational unit, then trading strategy:1 is related to trading strategy:2. 
+
+// Wash trades that result from unintentional self trading originating from unrelated algorithms or separate and distinct trading strategies are allowed and considered bona fide transactions.  
+. It is permitted that any firm may engage in a self trade that originates from a group of algorithms that are unrelated or that originates from a group of trading strategies that are separate and distinct.
+
+// Query: What trader cancelled or modified large and/or numerous orders on one side of the market just prior to executing a large trade on the opposite side of the market? 
+*** too many ill-defined terms here:  what is "large", what is "numerous", what is "just prior to"?
+A (thing) is large
+R the ? of the thing is greater than ???
+A (group) is numerous
+R the count of the group is greater than ???
+T side of the market
+T trader
+T trade
+R transaction
+V (trader) cancels (order)
+V (trader) modifies (order)
+V (trader) executes (trade)
+V (trade) is on (side of the market)
+? For what trader is there a situation where the trader cancelled either large orders or numerous orders that were on one side of the market before the situation where the trader executed a large trade that was on the other side of the market?
+
+// Query: Which trader IDs and trading desks had multiple occurrances of the spoofing scenario?  
+P (text) is the trader ID () of (trader)
+T trading desk
+N the spoofing scenario
+D situation kind where ???
+T occurrence [from DTV]
+P (occurrence) is an occurrence () of (situation kind)
+F (occurrence) exemplifies (situation kind)
+V (thing) plays (role) in (state of affairs) [SBVR]
+? For each trader that played a role in more than one occurrence of the spoofing scenario, what text is the trader ID of the trader?
+? What trading desk played a role in more than one occurrence of the spoofing scenario?
+
+// Query: Rank traders and trading desks from greatest to fewest spoofing occurrences. 
+*** RECON cannot do "rank"
+? For each trader, in how many occurrences of the spoofing scenario did the trader play a role? 
+
+// Query: What self-trades are bona-fide? 
+? What self trades are bona fide?
+// Query: What self-trades are not bona-fide?
+? What self trades are not bona fide?
+
+
+
+

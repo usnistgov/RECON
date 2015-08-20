@@ -1,0 +1,329 @@
+RECON and NBVRlib Change Log
+
+2011.07.08
+	UML model v070711
+	- Revised to support nominalization and extent as subtypes of Constant
+	- Revised to support LocalName (1st draft)
+	NBVRlib
+	- revised per UML changes, coded toIKL for nominalizations
+	RECON
+	- coded parseDomainForm, supports For all and There is
+
+2011.07.11
+	RECON
+	- completed coding parseDomainForm by fixing Rewrite
+	- repaired Parser to process Instance syntax tests in the right order
+	- repaired Rewrite to process Instances (thus Nominalizations) correctly
+2011.07.12
+	NBVRlib -- new baseline
+	- Revised VocabularyItem and TermUse to move all operations to TermUse
+	- Revised print() and toIKL() routines for Nominalizations, Relations
+	RECON
+	- Minor cleanups to ParseManager and VocLoad
+	archived 110615, moved this version to /proj/moss
+2011.07.18
+	RECON
+	- implementation of TermUse in ParseManager
+2011.07.22 v0.12
+	RECON
+	- Revised to function as plug-in app to Antoine's front-end
+	- created RECON interface
+	- created RECONManager from VocManager to support RECON interface
+	- minor changes to VocLoad and VocKey for Dictionary, Terminology interfaces
+	- modified to support multiple input files
+	- modified to write all errors to RECON.log
+
+2011.09.06 v0.13
+	RECON
+	- Revised to store and publish RECON version information
+	- Revised to support smart diagnostic tooling (Severin)
+	- Revised Error to attach Term sequence info, use freelist, provide external getFirst
+	- Revised ParseManager to create Term sequence array for Errors
+
+2011.09.16 v0.14
+	UML model v090911
+	- Revised to distinguish Dictionary from Terminology (Vocabulary)
+	- Revised to make Formulation the bucket for Parse objects
+	NBVRlib
+	- Revised to support UML changes only
+	RECON
+	- Revised to support UML changes (theVocabulary, setParse -> addElement)
+	- RECONManager now owns the Dictionary and Vocabulary objects, from VocKey
+	- Revised ParseManager parseLine to support the Formulation change
+
+2011.09.27 v0.15
+	RECON
+	- Revised to correct error logging in vocabulary declarations
+	- Revised to handle duplicate Word declarations properly
+	- Revised Parser to support ... that <subject> <verb> <particle term>
+
+2011.09.30 v0.16
+	UML model v090930
+	- Revised to include LocalName
+	NVBRlib
+	- Revised to support UML addition
+	- Revised to provide failure implementations of 'type' methods on abstract types
+	RECON
+	- Revised Parser to support local names
+	- Revised Parser to activate Property back references
+	- Revised Interpreter to correct quantifier placement
+
+2011.10.07 v0.17
+	RECON
+	- Revised to support alternate verb forms for property: has [as] [the] property
+
+2011.10.28 v0.18
+	UML model v111028
+	- Revised to add Quantity model to Instance kinds, add Quantifier.quantity
+	- Changed the structure of Number and Decimal to be Number with isDecimal 
+	- Added isUnit to vocNoun
+	- Added past form to Verb
+	- Moved RoleNoun to subtype SimpleNounPhrase, not ModifiedTerm
+	NBVRlib
+	- Revised to support UML changes
+	RECON
+	- VocLoad added support for unit declaration
+	- VocKey created adjuncts for */^ 
+	- ParseManager modified handling of Number and Decimal tokens to match model changes
+	- Interpreter modified with stub for defining a proper name
+
+2011.11.10-15 v0.18a
+	UML model v111111
+	- Change Number to NumberWord, TextString to StringWord
+	- add VocUnit, on VocNoun change unit attribute to isUnit() operation
+	- revise Extent model, to domain NounPhrase, invertible link to InterrogativeTerm
+	NBVRlib
+	- revised to support UML changes
+	- modify Quantity print() and Quantifier print()
+	RECON
+	- VocFileIn modified to support signed numbers, fix decimal
+	- VocKey add adjunct 'per', add operator adjuncts and getOperator
+	- ParseManager: minor changes to support UML model changes,
+        modify tokenization to support operators
+	- Parser modified to support quantity values as instances and quantifiers
+	- VocLoad modified to support UML model changes for VocUnit, quantityKind
+
+2011.11.17-18 v0.18b
+	UML model v111111a
+	- make VocUnit specialize VocName, move isUnit to VocName
+	- add massNoun to VocNoun
+	- add LessThanN, MoreThanN quantifier kinds
+	- make Interrogative subtype Pronoun, delete NounPhrase
+	NBVRlib
+	- revised to support UML changes
+	- make all print() routines in Grammar output to a 'log' parameter
+	- remove VocabularyItem.print()
+	- add IsVerb to Vocabulary.impl to support extra forms of 'to be'
+	- move RECONManager.makeFormulation(...) to VocFactory.createFormulation(...)
+	RECON
+	- VocPrint created from vocabulary print routines from RECONManager,
+	  modified to use the 'log' parameter
+	- VocLoad, ParseManager, Interpreter modified to support UML changes
+	- Parser modified to support LessThanN, MoreThanN
+	- StringArrayReader added, StreamIn modified, to support scripting
+	- VocLoad corrected to support scripting
+	- CanonicalQ created to contain all the basic quantity axioms and SI concepts
+
+2011.11.28-12.05 v0.18c
+	UML model v111201
+	- make the SimpleQualifier.boundForm a Sentence (generalizing BasicForm)
+	- add QuantityValue as a kind of Constant
+	NBVRlib
+	- revised to support UML changes, create toIKL for QuantityValue
+	RECON
+	- moved Terminology creation from VocKey to RECONManager (setDictionary)
+	- VocKey modified to add VocLoad script for thing, part, quantity, equal, etc.
+	  add lookups for terms generated by script
+	  (replaces all earlier item generation code except for Keywords)
+	- Rewrite modified to support AtLeastN etc. quantification as operations on 
+	  a 'collection'
+	  added standard constructor methods for TypeNoun, Pronoun, etc.
+	  modified rewriteProperty and rewriteModifier to use them
+	- Interpreter modified to create QuantityValue from Quantity
+
+2012.04.11-16 v0.19
+	RECON
+	- VocLoad: added importFile feature
+	- VocLoad: improved error handling, end-of-line issues
+	- VocFileIn: added skipToEnd() to get Token after skip
+	- Interpreter: implemented ProperName formulation, formulation as Instance
+
+2012.05.14-18 v0.20
+	NBVRlib
+	- Added .text attribute to Predicate, for displaying the verb term
+	RECON
+	- VocLoad: revised command codes to match RECON document
+	  added Vocabulary and Axiom processing modes, directives
+	- VocKey: revised command codes in embedded script
+	- VocFileIn:  revised Name token collection to support arbitrary characters,
+	  rewrote Number token collection to use E, and to be easy to follow
+	- ParseManager: fix bad line start crash in createStream
+	- Interpreter: fixed (cl:comment and verb names
+	- RECONManager modified to use VocLoad modes per Vocabulary/Axiom interface
+
+2012.11.20 v0.21
+	NBVRlib
+	- move domain phrase up to Sentence (for pronoun stuff)
+	RECON
+	- Parser: implement Pronoun referencing (incomplete)
+
+2013.03.13 v0.22
+	NBVRlib
+	- add WHERE and WHEN as keywords
+	- remove Event
+	- rename Extent to Intension, relate Intension to concept RolePhrase
+	RECON
+	- VocKey: create where/when and hasTheme, clean up unused words
+	- Parser: implement thing where sentence as qualifier; delete Events
+
+2013.03.15 v0.23
+	NBVRlib
+	- delete Interrogative, add QueryPhrase as subtype of RolePhrase
+	- relate Question to QueryPhrase, expand QueryKind, add HowMany
+	- add Keywords for WHERE, WHEN, HOW, MANY
+	RECON
+	- Parser: complete parse of Question, Query and Interrogative
+	  (no support yet in Rewrite or Interpreter)
+	- VocKey: add support for query keywords
+	- Token: delete QueryKind word recognizer (function moved to Parser)
+2013.04.08-10 
+	NBVRlib
+	- modified SimpleFormImpl to make access to rolesArray safe
+	- added Sentence.rewrites to allow inAntecedent to know about rewrites
+	RECON
+	- Rewrite: rewrote inAntecedent to deal with in-progress rewrites and quantifiers in qualifiers
+	- Rewrite: fixed domain chains to capture parent relations
+	- Interpreter: modified to protect itself from Questions and Queries
+
+2013.04.15-16
+	UML v130415a
+	- deleted subtypes of ImplicationForm, add .kind:Connective, 
+	- add IF, ONLYIF, UNLESS as Connectives
+	- modified ParseElement to have a parent and an ElementType
+	NBVRlib
+	- modified element classes to implment getElementType()
+	RECON
+	- modifed Parser, Rewrite, Interpreter to deal with ImplicationForm changes
+	- Rewrite/Interpreter: repaired confusion about negation for OnlyIf and Unless
+	- Parser: modified to capture parent relationships on all ParseElements
+	  minor improvements to Parser code in same areas
+	- Parser: moved xxx-thing pronoun parse and generation to a separate routine
+	- Rewrite: modified inAntecedent to use new parent relations, fix nominalizations
+
+2013.04.22
+	RECON
+	- Rewrite: deleted inAntecedent and the code that used it
+	- Interpreter: created inAntecedent and resolved Any in Quantifier interpretation
+	- Parser: modified parseQuantifier to make no quantifier = Any in subjects, else An
+	- Interpreter: detected bug moving quantifications (may be Owner missing)
+	- Parser: added TODO for There must (not) be
+
+2013.04.30-05.15
+	UML v130430a
+	- added modality to DomainForm
+	- added MODAL as a SentenceType
+	- added PERMITTED_NOT as a Modality, along with possibility and others unused
+	- made NEGATION a modality, and eliminated isNegative()
+	NBVRlib
+	- modified DomainForm to return type MODAL if there is a modality
+	RECON
+	- Parser: modified parseThereIsForm to use parseVerbPhrase, supports 'there must not be'
+	- Parser: modified to handle the change in Negation
+	- Rewrite: modified rewriteSimpleForm to extract modalities and negations
+	- Rewrite: rewrote negate(Sentence) to deal correctly with modalities
+	- Interpreter: created interpretModalForm and modified interpretSentence to use it
+
+2013.05.24-06.04 v0.24
+	UML model v130430b
+	- restored isNegative() for SimpleForms
+	NBVRlib
+	- restored isNegative() for SimpleForm
+	RECON
+	- RECONManager: add setActiveOptions to allow process options to be changed
+	- VocLoad: modified importFile to accept process options for the file
+	- VocFileIn: corrected getToken(dumb) to stop on end-of-line and whitespace
+	- Parser: modified above to handle Negation correctly
+	- Parser: revised parseThereIs and parseFor to use parseSimpleNoun, not parseDomain
+	  (this extends the grammar for domains to include properties and meta-roles)
+	- Parser: modified to clean up implication forms to IF and UNLESS and EQV
+	- Rewrite: modified above to leave simple Negation and do 'negate' safely
+	- Rewrite: modified to clean up implication forms to IF and IF NOT
+	- Rewrite: modified rewriteDomainChain to recognize modal forms
+	- Interpreter: restored negation for SimpleForms
+	- Interpreter: modified interpretImplication to simplify implications
+	- Interpreter: modified interpretTypeNoun to correct handling of forward references to variables
+
+2013.06.28-07.03 v0.25
+	UML package created, to enable UML output
+	RECON
+	- RECONManager: modified interface to support UML generation option, make vocabulary and axiom input parallel, minor cleanup in file handling
+	- RECONMain: modified command line, moved logic file open to Main
+	- VocFileIn: implemented setBase on type/property/name definitions
+	- UMLMaker: created, to map Vocabulary to UML model elements
+	- UMLout: created, to produce XMI representation of the UML model
+	- Parser: bug fix for number instances
+	- ParseManager: repair term capture to allow numeric and string elements of a term
+
+2013.09.16-25, and 2013.10.17-21 v0.26
+	UMLmodel v130925
+	- Modified Dictionary, Word to make a linked list of Words (in lieu of the container)
+	- Modified Vocabulary, VocItem to make a queue of Items (in lieu of the container)
+	- Added IsVerb to the model
+	NBVRlib
+	- WordForm modified to accept StringBuffer, improve hash
+	- Dictionary.addWord modified to use the linked list of Words
+	- Terminology.addItem modified to implement the queue of Items
+	- Dictionary Verb and Noun, removed automatic link from WordForm to Word on secondary entries
+        (this allows RECON to use setWord and setAltWord properly)
+	- IsVerbImpl succeeds the IsVerb class, mostly generated
+	RECON
+	- VocBase split from VocKey to separate Dictionary and Terminology generation
+	- Related changes to references to VocKey.vocXXX (now in vocBase.vocXXX)
+	- VocLoad rewrite of loadNoun, loadVerb to handle AlternateWords for WordForms
+	- minor changes to Parser and Rewrite to get IsVerb and consistent 
+	- DicLoad extracted from VocLoad to facilitate dictionary construction
+	- RECONManager setDictionary modified to initialize and load the Dictionary
+        with RECON.dic as default
+	- VocPrint modified to use linked list of Words and the queue of Terms
+	  added saveDictionary (in DicLoad input form) for Dicbuild
+	- VocFileIn modified to accept rational numbers as DECIMAL tokens
+	DICBUILD
+	- preliminary version 0.1 of Scowler/DicBuild made from RECON parts
+	- irregulars.dic constructed, initial version of RECON.dic made from SCOWL lists
+	RECON.dic 
+	- created by Dicbuild,  cleaned up
+	CanonicalQ.recon
+	- completed for all basic SI quantities, area, volume
+	- problems with mu
+ 
+2013.11.22-12.4 v0.27x
+	UML
+	- additions to SyntaxForm and RoleElement for SBVR mapping
+	- VocabularyItem.kind becomes operation getKind()
+	NBVRlib
+	- implement VocabularyItem.getKind()
+	RECON
+	- remove VocXXX.setKind() VocLoad and ParseManager
+	- initial work on SBVR import (add package sbvr)
+
+2013.12.09-18 v0.28
+	RECON
+	- make ParseManager input line-oriented (to support external sources)
+	- create TokenIn from StreamIn
+	- revise ParseManager, VocLoad, DicLoad to use revised TokenIn/StreamIn
+	- modify VocPrint to print Name entries correctly
+	- Rewrite: rewrite ExpandGroup to handle unionPhrase (SBVR extensionalDefinition)
+	SBVR
+	- modify SBVRxml to use line-oriented ParseManager interface and end-of-line
+
+2014.01.02-? v0.28a
+	NBVRlib
+	- VerbPhrase: turn off setNegated, isNegated returns modality == NEGATION
+	RECON
+	- Parser: revise handling of Not to modality = NEGATION
+	- develop GroupPhrases.txt to study group and negation constructs
+	- VocKey:  add 'byWord' for "by" (passive voice)
+	SBVR
+	- correct axiom processing to call Interpreter
+	- automatically create passive voice alternative forms for simple verbs
+	- process SBVR 'has verbs' to properties

@@ -1,0 +1,899 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="NBVR"
+    nsURI="http:///NBVR.ecore" nsPrefix="NBVR">
+  <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+    <details key="documentation" value="Author:edbark.&#xA;Created:5/25/10 3:11 PM.&#xA;Title:.&#xA;Comment:.&#xA;"/>
+  </eAnnotations>
+  <eSubpackages name="Vocabulary" nsURI="http:///NBVR/Vocabulary.ecore" nsPrefix="NBVR.Vocabulary">
+    <eClassifiers xsi:type="ecore:EClass" name="Adjective" eSuperTypes="#//Vocabulary/Word"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Word" abstract="true">
+      <eOperations name="isArticle" ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eOperations name="isNumber" ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eOperations name="isText" ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eOperations name="isKeyword" ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eParameters name="kind" ordered="false" lowerBound="1" eType="#//Vocabulary/KeywordKind"/>
+      </eOperations>
+      <eOperations name="isKeyword" ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eOperations name="isIs" ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="base" ordered="false"
+          lowerBound="1" eType="#//Vocabulary/WordForm"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="beginsTerm" ordered="false"
+          upperBound="-1" eType="#//Vocabulary/Term"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="next" ordered="false"
+          eType="#//Vocabulary/Word" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="WordForm">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="next" ordered="false"
+          eType="#//Vocabulary/WordForm"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="word" ordered="false"
+          lowerBound="1" eType="#//Vocabulary/Word">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The word, or the primary verb, of which this is a form."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="altWord" ordered="false"
+          eType="#//Vocabulary/Word">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="A word of which this is a form, but is different from the primary word/verb.  Usually, a noun of which this is the plural, in addition to the verb of which this is present singular."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Term">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="concept" ordered="false"
+          eType="#//Vocabulary/VocabularyItem" eOpposite="#//Vocabulary/VocabularyItem/terms"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="role" ordered="false"
+          eType="#//Vocabulary/VerbRole" eOpposite="#//Vocabulary/VerbRole/term"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="particle" ordered="false"
+          eType="#//Vocabulary/Particle" eOpposite="#//Vocabulary/Particle/term"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="words" lowerBound="1"
+          upperBound="-1" eType="#//Vocabulary/Word"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="context" ordered="false"
+          eType="#//Vocabulary/VocabularyItem"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="element" ordered="false"
+          upperBound="-1" eType="#//Vocabulary/ItemElement" eOpposite="#//Vocabulary/ItemElement/term"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" ordered="false"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="VocabularyItem" abstract="true">
+      <eOperations name="isPrimitive" ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eOperations name="getKind" ordered="false" lowerBound="1" eType="#//Vocabulary/VocItemKind"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="formulations" ordered="false"
+          upperBound="-1" eType="#//Vocabulary/Formulation" containment="true" eOpposite="#//Vocabulary/Formulation/concept"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="base" ordered="false"
+          upperBound="-1" eType="#//Vocabulary/VocabularyItem"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="next" ordered="false"
+          eType="#//Vocabulary/VocabularyItem" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="terms" ordered="false"
+          lowerBound="1" upperBound="-1" eType="#//Vocabulary/Term" containment="true"
+          eOpposite="#//Vocabulary/Term/concept"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Formulation">
+      <eOperations name="isStructured" ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eOperations name="addElement" ordered="false" lowerBound="1">
+        <eParameters name="elt" ordered="false" lowerBound="1" eType="#//Grammar/ParseElement"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="form" ordered="false"
+          eType="#//Vocabulary/FormulationForm" containment="true" eOpposite="#//Vocabulary/FormulationForm/formulation"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" ordered="false"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="language" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="the value is really a code:&#xA;- for natural languages, use ISO 639 2-character ('en')&#xA;- for formal languages, use the language acronym: CL, OWL, SBVR, NRE"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="elements" ordered="false"
+          upperBound="-1" eType="#//Grammar/ParseElement" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="concept" ordered="false"
+          lowerBound="1" eType="#//Vocabulary/VocabularyItem" eOpposite="#//Vocabulary/VocabularyItem/formulations"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="FormulationForm" abstract="true">
+      <eOperations name="isStructured" ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="formulation" ordered="false"
+          eType="#//Vocabulary/Formulation" eOpposite="#//Vocabulary/Formulation/form"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="VerbRole">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="range" ordered="false"
+          lowerBound="1" eType="#//Vocabulary/VocNoun"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="verb" ordered="false"
+          lowerBound="1" eType="#//Vocabulary/VocVerb" eOpposite="#//Vocabulary/VocVerb/roles"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="term" ordered="false"
+          eType="#//Vocabulary/Term" containment="true" eOpposite="#//Vocabulary/Term/role"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isRange" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The VerbRole is the &quot;range&quot; role of the property.  Its range is the type of the result."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="VocNoun" eSuperTypes="#//Vocabulary/VocabularyItem">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="isAVerb" ordered="false"
+          eType="#//Vocabulary/VocVerb"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="predicate" ordered="false"
+          eType="#//Logic/Predicate" containment="true" eOpposite="#//Logic/Predicate/noun"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="massNoun" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="VocVerb" eSuperTypes="#//Vocabulary/VocabularyItem">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="arity" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="roles" ordered="false"
+          lowerBound="1" upperBound="-1" eType="#//Vocabulary/VerbRole" containment="true"
+          eOpposite="#//Vocabulary/VerbRole/verb"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="form" ordered="false"
+          lowerBound="1" upperBound="-1" eType="#//Vocabulary/SyntaxForm" containment="true"
+          eOpposite="#//Vocabulary/SyntaxForm/verb"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="predicate" ordered="false"
+          eType="#//Logic/Predicate" containment="true" eOpposite="#//Logic/Predicate/verb"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SyntaxForm">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="elements" lowerBound="1"
+          upperBound="-1" eType="#//Vocabulary/FormElement" containment="true" eOpposite="#//Vocabulary/FormElement/form"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="isAuxForm" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="property" ordered="false"
+          eType="#//Vocabulary/VocProperty" eOpposite="#//Vocabulary/VocProperty/propertyForm"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" ordered="false"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="verb" ordered="false"
+          eType="#//Vocabulary/VocVerb" eOpposite="#//Vocabulary/VocVerb/form"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="FormElement" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" ordered="false"
+          lowerBound="1" eType="#//Vocabulary/FormElementKind"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="form" ordered="false"
+          eType="#//Vocabulary/SyntaxForm" eOpposite="#//Vocabulary/SyntaxForm/elements"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="FormElementKind">
+      <eLiterals name="SubjectRole"/>
+      <eLiterals name="ObjectRole" value="1"/>
+      <eLiterals name="ParticleRole" value="2"/>
+      <eLiterals name="ParticleElement" value="3"/>
+      <eLiterals name="ItemElement" value="4"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="VocProperty" eSuperTypes="#//Vocabulary/VocabularyItem">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="domain" ordered="false"
+          lowerBound="1" eType="#//Vocabulary/VocNoun"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="range" ordered="false"
+          lowerBound="1" eType="#//Vocabulary/VocNoun"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="verb" ordered="false"
+          lowerBound="1" eType="#//Vocabulary/VocVerb"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="propertyForm" ordered="false"
+          lowerBound="1" upperBound="-1" eType="#//Vocabulary/SyntaxForm" containment="true"
+          eOpposite="#//Vocabulary/SyntaxForm/property"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="NumberWord" eSuperTypes="#//Vocabulary/Word">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="decimal" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="VocUnit" eSuperTypes="#//Vocabulary/VocName">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="quantityKind" ordered="false"
+          eType="#//Vocabulary/VocProperty"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="VocName" eSuperTypes="#//Vocabulary/VocabularyItem">
+      <eOperations name="isUnit" ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="VocAdjective" eSuperTypes="#//Vocabulary/VocabularyItem">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="domain" ordered="false"
+          eType="#//Vocabulary/VocNoun"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="verb" ordered="false"
+          lowerBound="1" eType="#//Vocabulary/VocVerb"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="KeywordKind">
+      <eLiterals name="Adjunct">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="At, By, Neither, Either"/>
+        </eAnnotations>
+      </eLiterals>
+      <eLiterals name="K_An" value="1">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="A, An, Any, Some"/>
+        </eAnnotations>
+      </eLiterals>
+      <eLiterals name="K_The" value="2"/>
+      <eLiterals name="K_All" value="3">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="All, Each, Every"/>
+        </eAnnotations>
+      </eLiterals>
+      <eLiterals name="K_None" value="4"/>
+      <eLiterals name="K_No" value="5"/>
+      <eLiterals name="K_Any" value="6"/>
+      <eLiterals name="K_One" value="7">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="(exactly) One"/>
+        </eAnnotations>
+      </eLiterals>
+      <eLiterals name="K_At" value="8"/>
+      <eLiterals name="K_Least" value="9">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="(at) Least"/>
+        </eAnnotations>
+      </eLiterals>
+      <eLiterals name="K_Less" value="10"/>
+      <eLiterals name="K_Most" value="11">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="(at) Most"/>
+        </eAnnotations>
+      </eLiterals>
+      <eLiterals name="K_More" value="12"/>
+      <eLiterals name="K_Than" value="13"/>
+      <eLiterals name="K_Exactly" value="14"/>
+      <eLiterals name="K_Many" value="15"/>
+      <eLiterals name="K_Not" value="16"/>
+      <eLiterals name="K_And" value="17"/>
+      <eLiterals name="K_Or" value="18"/>
+      <eLiterals name="K_If" value="19"/>
+      <eLiterals name="K_Then" value="20"/>
+      <eLiterals name="K_Else" value="21"/>
+      <eLiterals name="K_Only" value="22"/>
+      <eLiterals name="K_Unless" value="23"/>
+      <eLiterals name="K_Same" value="24"/>
+      <eLiterals name="K_Different" value="25"/>
+      <eLiterals name="K_Other" value="26"/>
+      <eLiterals name="K_Another" value="27"/>
+      <eLiterals name="K_Must" value="28"/>
+      <eLiterals name="K_May" value="29"/>
+      <eLiterals name="K_Always" value="30"/>
+      <eLiterals name="K_That" value="31">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="That used to introduce a reification"/>
+        </eAnnotations>
+      </eLiterals>
+      <eLiterals name="K_Whose" value="32"/>
+      <eLiterals name="Anaphor" value="33">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="that, which, who, where, when"/>
+        </eAnnotations>
+      </eLiterals>
+      <eLiterals name="Pronoun" value="34"/>
+      <eLiterals name="Genitive" value="35"/>
+      <eLiterals name="K_Self" value="36"/>
+      <eLiterals name="K_Everything" value="37"/>
+      <eLiterals name="K_Something" value="38"/>
+      <eLiterals name="K_Anything" value="39"/>
+      <eLiterals name="K_Nothing" value="40"/>
+      <eLiterals name="K_Whether" value="41"/>
+      <eLiterals name="K_What" value="42"/>
+      <eLiterals name="K_Which" value="43"/>
+      <eLiterals name="K_Where" value="44"/>
+      <eLiterals name="K_When" value="45"/>
+      <eLiterals name="K_Why" value="46"/>
+      <eLiterals name="K_How" value="47"/>
+      <eLiterals name="K_This" value="48"/>
+      <eLiterals name="K_Both" value="49"/>
+      <eLiterals name="K_Either" value="50"/>
+      <eLiterals name="K_Neither" value="51"/>
+      <eLiterals name="K_Nor" value="52"/>
+      <eLiterals name="K_Together" value="53"/>
+      <eLiterals name="K_But" value="54"/>
+      <eLiterals name="K_Instead" value="55"/>
+      <eLiterals name="K_There" value="56"/>
+      <eLiterals name="K_For" value="57"/>
+      <eLiterals name="K_As" value="58"/>
+      <eLiterals name="K_Of" value="59"/>
+      <eLiterals name="Function" value="60">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Of, For"/>
+        </eAnnotations>
+      </eLiterals>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Particle" eSuperTypes="#//Vocabulary/FormElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="role" ordered="false"
+          eType="#//Vocabulary/RoleElement" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="term" ordered="false"
+          lowerBound="1" eType="#//Vocabulary/Term" containment="true" eOpposite="#//Vocabulary/Term/particle"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="RoleElement" eSuperTypes="#//Vocabulary/FormElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="role" ordered="false"
+          lowerBound="1" eType="#//Vocabulary/VerbRole"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="slot" ordered="false"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Keyword" eSuperTypes="#//Vocabulary/Word">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" ordered="false"
+          lowerBound="1" eType="#//Vocabulary/KeywordKind"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="VocItemKind">
+      <eLiterals name="NounConcept"/>
+      <eLiterals name="VerbConcept" value="1"/>
+      <eLiterals name="AdjectiveConcept" value="2"/>
+      <eLiterals name="PropertyConcept" value="3"/>
+      <eLiterals name="ProperName" value="4"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ItemElement" eSuperTypes="#//Vocabulary/FormElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="term" ordered="false"
+          lowerBound="1" eType="#//Vocabulary/Term" eOpposite="#//Vocabulary/Term/element"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Adjunct" eSuperTypes="#//Vocabulary/Word"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Noun" eSuperTypes="#//Vocabulary/Word">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="plural" ordered="false"
+          lowerBound="1" eType="#//Vocabulary/WordForm"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="altPlural" ordered="false"
+          eType="#//Vocabulary/WordForm"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Name" eSuperTypes="#//Vocabulary/Word"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Verb" eSuperTypes="#//Vocabulary/Word">
+      <eOperations name="isProgressive" ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eParameters name="wf" ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="isPast" ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eParameters name="wf" ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eOperations name="isPerfective" ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eParameters name="wf" ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="singular" ordered="false"
+          lowerBound="1" eType="#//Vocabulary/WordForm"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="plural" ordered="false"
+          lowerBound="1" eType="#//Vocabulary/WordForm"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="past" ordered="false"
+          lowerBound="1" eType="#//Vocabulary/WordForm"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="progressive" ordered="false"
+          lowerBound="1" eType="#//Vocabulary/WordForm"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="perfective" ordered="false"
+          lowerBound="1" eType="#//Vocabulary/WordForm"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="altPast" ordered="false"
+          eType="#//Vocabulary/WordForm"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Dictionary">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="firstWord" ordered="false"
+          eType="#//Vocabulary/Word" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="StringWord" eSuperTypes="#//Vocabulary/Word"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Definition" eSuperTypes="#//Vocabulary/Formulation">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A Definition is a text formulation.  It has no structured form."/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DateTime" eSuperTypes="#//Vocabulary/Word"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Terminology">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="firstItem" ordered="false"
+          eType="#//Vocabulary/VocabularyItem" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="lastItem" ordered="false"
+          eType="#//Vocabulary/VocabularyItem"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="IsVerb" eSuperTypes="#//Vocabulary/Verb"/>
+  </eSubpackages>
+  <eSubpackages name="Grammar" nsURI="http:///NBVR/Grammar.ecore" nsPrefix="NBVR.Grammar">
+    <eClassifiers xsi:type="ecore:EClass" name="GroupPhrase" eSuperTypes="#//Grammar/RolePhrase">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="members" ordered="false"
+          lowerBound="1" upperBound="-1" eType="#//Grammar/SimpleNounPhrase"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" ordered="false"
+          lowerBound="1" eType="#//Grammar/GroupKind"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="RolePhrase" abstract="true" eSuperTypes="#//Vocabulary/FormulationForm #//Grammar/ParseElement">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A bound term is the linguistic form of a thing that plays a role in a fact type.  A BoundTerm is either a NounPhrase or a &quot;modified anaphor&quot;.  It can only be a &quot;modified anaphor&quot; when the SimpleForm that owns it is a SimpleQualifier."/>
+      </eAnnotations>
+      <eOperations name="getType" ordered="false" lowerBound="1" eType="#//Grammar/PhraseType"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rolePlayed" ordered="false"
+          eType="#//Vocabulary/VerbRole"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="variable" ordered="false"
+          eType="#//Logic/Variable"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="referent" ordered="false"
+          eType="#//Grammar/RolePhrase"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="QuantifierKind">
+      <eLiterals name="Q_An">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="represents: a or an, some or any meaning there exists one&#xA;"/>
+        </eAnnotations>
+      </eLiterals>
+      <eLiterals name="Q_The" value="1">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="represents the"/>
+        </eAnnotations>
+      </eLiterals>
+      <eLiterals name="Q_All" value="2">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="represents each, every, all and some uses of 'any'"/>
+        </eAnnotations>
+      </eLiterals>
+      <eLiterals name="Q_No" value="3">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="represents no, none"/>
+        </eAnnotations>
+      </eLiterals>
+      <eLiterals name="Q_Any" value="4">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="represents some as in some specific, a given"/>
+        </eAnnotations>
+      </eLiterals>
+      <eLiterals name="AtLeast1" value="5"/>
+      <eLiterals name="AtMost1" value="6"/>
+      <eLiterals name="Exactly1" value="7"/>
+      <eLiterals name="AtLeastN" value="8"/>
+      <eLiterals name="AtMostN" value="9"/>
+      <eLiterals name="ExactlyN" value="10"/>
+      <eLiterals name="LessThanN" value="11"/>
+      <eLiterals name="MoreThanN" value="12"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="InstanceKind">
+      <eLiterals name="Name"/>
+      <eLiterals name="Number" value="1"/>
+      <eLiterals name="String" value="2"/>
+      <eLiterals name="Quantity" value="3"/>
+      <eLiterals name="Statement" value="4"/>
+      <eLiterals name="Question" value="5"/>
+      <eLiterals name="Query" value="6"/>
+      <eLiterals name="Concept" value="7"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="Connective">
+      <eLiterals name="And"/>
+      <eLiterals name="Or" value="1"/>
+      <eLiterals name="Nor" value="2"/>
+      <eLiterals name="Xor" value="3"/>
+      <eLiterals name="If" value="4"/>
+      <eLiterals name="Unless" value="5"/>
+      <eLiterals name="OnlyIf" value="6"/>
+      <eLiterals name="Eqv" value="7"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="Modality">
+      <eLiterals name="None"/>
+      <eLiterals name="Negation" value="1"/>
+      <eLiterals name="Obligation" value="2">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="It is required that P is true.&#xA;Not (Obligation (that p)) is (Permission (that (not p)))"/>
+        </eAnnotations>
+      </eLiterals>
+      <eLiterals name="Prohibition" value="3">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="It is required that p is false.  Or: that (not p) is true.&#xA;&#xA;Not (Prohibition (that p)) is (Permission (that p))"/>
+        </eAnnotations>
+      </eLiterals>
+      <eLiterals name="Permission" value="4">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="It is permitted that p is true.&#xA;&#xA;Not (Permission (that p)) is (Prohibition (that p))"/>
+        </eAnnotations>
+      </eLiterals>
+      <eLiterals name="PermittedNot" value="5">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="It is permitted that p is false.  Or: that (not p) is true.&#xA;&#xA;Not (Permission (that (not p)) is (Obligation  (that p))"/>
+        </eAnnotations>
+      </eLiterals>
+      <eLiterals name="Possibility" value="6"/>
+      <eLiterals name="Impossibility" value="7"/>
+      <eLiterals name="Preference" value="8">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="It is preferred that p is true."/>
+        </eAnnotations>
+      </eLiterals>
+      <eLiterals name="Antipreference" value="9">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="It is preferred that p is false.  Or: that (not p) is true."/>
+        </eAnnotations>
+      </eLiterals>
+      <eLiterals name="Nonpreference" value="10"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="PhraseType">
+      <eLiterals name="Instance"/>
+      <eLiterals name="Group" value="1"/>
+      <eLiterals name="Query" value="2"/>
+      <eLiterals name="TypeNoun" value="3"/>
+      <eLiterals name="Property" value="4"/>
+      <eLiterals name="RoleNoun" value="5"/>
+      <eLiterals name="Pronoun" value="6"/>
+      <eLiterals name="Anaphor" value="7"/>
+      <eLiterals name="Interrogative" value="8"/>
+      <eLiterals name="LocalName" value="9"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SimpleNounPhrase" abstract="true"
+        eSuperTypes="#//Grammar/RolePhrase"/>
+    <eClassifiers xsi:type="ecore:EEnum" name="GroupKind">
+      <eLiterals name="Joint"/>
+      <eLiterals name="All" value="1"/>
+      <eLiterals name="Choice" value="2"/>
+      <eLiterals name="Neither" value="3"/>
+      <eLiterals name="Instead" value="4"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Condition" eSuperTypes="#//Grammar/ParseElement">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="otherwise" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="qualifier" ordered="false"
+          lowerBound="1" eType="#//Grammar/SimpleQualifier" eOpposite="#//Grammar/SimpleQualifier/condition"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="antecedent" ordered="false"
+          eType="#//Grammar/Sentence"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SimpleQualifier" eSuperTypes="#//Grammar/Qualifier">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="chain" ordered="false"
+          eType="#//Grammar/QualifierChain" eOpposite="#//Grammar/QualifierChain/qualifiers"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="boundForm" ordered="false"
+          lowerBound="1" eType="#//Grammar/Sentence"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="condition" ordered="false"
+          eType="#//Grammar/Condition" eOpposite="#//Grammar/Condition/qualifier">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The conditions attached to a Qualifier are implicitly alternatives (OR)."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Qualifier" abstract="true" eSuperTypes="#//Grammar/ParseElement">
+      <eOperations name="isSimple" ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="QualifierChain" eSuperTypes="#//Grammar/Qualifier">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="A QualifierChain is a set of alternatives (nominally connected by OR) in which each alternative has a condition for applicability.&#xA;&#xA;Example:  February is a month that has duration 29 days if it occurs in a leap year, or that has duration 28 days otherwise."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="qualifiers" ordered="false"
+          lowerBound="1" upperBound="-1" eType="#//Grammar/SimpleQualifier" eOpposite="#//Grammar/SimpleQualifier/chain"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Sentence" abstract="true" eSuperTypes="#//Vocabulary/FormulationForm #//Grammar/ParseElement">
+      <eOperations name="getType" ordered="false" lowerBound="1" eType="#//Grammar/SentenceType"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="domain" ordered="false"
+          eType="#//Grammar/RolePhrase">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The &quot;domain&quot; of a sentence is the object to which pronouns used in dependent clauses will refer.&#xA;&#xA;In the specific case of the DomainForm (for all, there is), the domain is the operand of the logical quantification."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="rewrites" ordered="false"
+          eType="#//Grammar/Sentence"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="SentenceType">
+      <eLiterals name="Other"/>
+      <eLiterals name="Simple" value="1"/>
+      <eLiterals name="Compound" value="2"/>
+      <eLiterals name="Implication" value="3"/>
+      <eLiterals name="Equivalence" value="4"/>
+      <eLiterals name="Domain" value="5"/>
+      <eLiterals name="Modal" value="6"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="TypeNoun" eSuperTypes="#//Grammar/ModifiedTerm">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="noun" ordered="false"
+          lowerBound="1" eType="#//Vocabulary/VocNoun"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ModifiedTerm" abstract="true" eSuperTypes="#//Grammar/SimpleNounPhrase">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="quantifier" ordered="false"
+          eType="#//Grammar/Quantifier"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="modifiers" ordered="false"
+          upperBound="-1" eType="#//Grammar/Modifier"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="qualifiers" ordered="false"
+          upperBound="-1" eType="#//Grammar/Qualifier">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="One or more constraints that restrict the set of referents of the TypeNoun.  The qualifiers of a TypeNoun are implicitly ORed."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Quantifier" eSuperTypes="#//Grammar/ParseElement">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" ordered="false"
+          lowerBound="1" eType="#//Grammar/QuantifierKind"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="count" ordered="false"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="quantity" ordered="false"
+          eType="#//Grammar/Quantity"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Quantity" eSuperTypes="#//Grammar/Instance">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="factor" ordered="false"
+          lowerBound="1" eType="#//Vocabulary/NumberWord"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="dimension" ordered="false"
+          upperBound="-1" eType="#//Grammar/Dimension"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Instance" abstract="true" eSuperTypes="#//Grammar/SimpleNounPhrase">
+      <eOperations name="getKind" ordered="false" lowerBound="1" eType="#//Grammar/InstanceKind"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Dimension">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="exponent" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="unit" ordered="false"
+          lowerBound="1" eType="#//Vocabulary/VocUnit"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Modifier" eSuperTypes="#//Grammar/ParseElement">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="adjective" ordered="false"
+          eType="#//Vocabulary/VocAdjective"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" ordered="false"
+          lowerBound="1" eType="#//Vocabulary/KeywordKind"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="relative" ordered="false"
+          eType="#//Grammar/RolePhrase"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PropertyNoun" eSuperTypes="#//Grammar/ModifiedTerm">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="property" ordered="false"
+          lowerBound="1" eType="#//Vocabulary/VocProperty"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="domain" ordered="false"
+          lowerBound="1" eType="#//Grammar/SimpleNounPhrase"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="expansion" ordered="false"
+          eType="#//Grammar/TypeNoun"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="RoleNoun" eSuperTypes="#//Grammar/SimpleNounPhrase">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="role" ordered="false"
+          eType="#//Vocabulary/VerbRole"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="VerbPhrase">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="verb" ordered="false"
+          lowerBound="1" eType="#//Vocabulary/VocVerb"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="modality" ordered="false"
+          lowerBound="1" eType="#//Grammar/Modality"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="negated" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PartPhrase">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="partRole" ordered="false"
+          eType="#//Grammar/RolePhrase"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="particle" ordered="false"
+          lowerBound="1" eType="#//Vocabulary/Particle"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SimpleForm" eSuperTypes="#//Grammar/Sentence">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="The actual sentence/clause structure that matches a fact type form."/>
+      </eAnnotations>
+      <eOperations name="getModality" ordered="false" lowerBound="1" eType="#//Grammar/Modality"/>
+      <eOperations name="isNegated" ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="verb" ordered="false"
+          lowerBound="1" eType="#//Grammar/VerbPhrase" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="partPhrases" ordered="false"
+          upperBound="-1" eType="#//Grammar/PartPhrase" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="subject" ordered="false"
+          lowerBound="1" eType="#//Grammar/RolePhrase"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="object" ordered="false"
+          eType="#//Grammar/RolePhrase"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ImplicationForm" eSuperTypes="#//Grammar/Sentence">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="antecedent" ordered="false"
+          lowerBound="1" eType="#//Grammar/Sentence"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="consequent" ordered="false"
+          lowerBound="1" eType="#//Grammar/Sentence"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="alternative" ordered="false"
+          eType="#//Grammar/Sentence"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" ordered="false"
+          lowerBound="1" eType="#//Grammar/Connective"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="CompoundForm" eSuperTypes="#//Grammar/Sentence">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" ordered="false"
+          lowerBound="1" eType="#//Grammar/Connective"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="statements" ordered="false"
+          lowerBound="1" upperBound="-1" eType="#//Grammar/Sentence"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="LexicalInstance" eSuperTypes="#//Grammar/Instance">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="word" ordered="false"
+          lowerBound="1" eType="#//Vocabulary/Word"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Nominalization" abstract="true" eSuperTypes="#//Grammar/Instance">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="sentence" ordered="false"
+          lowerBound="1" eType="#//Grammar/Sentence"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Statement" eSuperTypes="#//Grammar/Nominalization"/>
+    <eClassifiers xsi:type="ecore:EClass" name="Question" eSuperTypes="#//Grammar/Nominalization">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="query" ordered="false"
+          lowerBound="1" eType="#//Grammar/QueryKind"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="queryPhrase" ordered="false"
+          eType="#//Grammar/QueryPhrase" eOpposite="#//Grammar/QueryPhrase/question"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="QueryKind">
+      <eLiterals name="Any">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="QueryKind.Any is used only when the Intension is a reference to a classifier itself, without use of an interrogative."/>
+        </eAnnotations>
+      </eLiterals>
+      <eLiterals name="What" value="1"/>
+      <eLiterals name="Whether" value="2"/>
+      <eLiterals name="Why" value="3">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="Why refers to an event or situation that is the cause of the event/situation identified by the EventConcept."/>
+        </eAnnotations>
+      </eLiterals>
+      <eLiterals name="How" value="4">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="How refers to a set of events or actions that detail the event or result in the situation identified by the EventConcept."/>
+        </eAnnotations>
+      </eLiterals>
+      <eLiterals name="Where" value="5"/>
+      <eLiterals name="When" value="6"/>
+      <eLiterals name="HowMany" value="7"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="QueryPhrase" eSuperTypes="#//Grammar/RolePhrase">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="domain" ordered="false"
+          lowerBound="1" eType="#//Grammar/RolePhrase">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The domain of the Interrogative (pronoun) is the TypeNoun or PropertyNoun that it modifies.  (which X) (whose X)"/>
+        </eAnnotations>
+      </eStructuralFeatures>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="query" ordered="false"
+          lowerBound="1" eType="#//Grammar/QueryKind"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="question" ordered="false"
+          lowerBound="1" eType="#//Grammar/Question" eOpposite="#//Grammar/Question/queryPhrase"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ProperName" eSuperTypes="#//Grammar/Instance">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="name" ordered="false"
+          lowerBound="1" eType="#//Vocabulary/VocName">
+        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+          <details key="documentation" value="The word used in the lexical instance.  It must be a proper name, a number, or a string delimited by quotation marks."/>
+        </eAnnotations>
+      </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Pronoun" eSuperTypes="#//Grammar/ModifiedTerm">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="keyword" ordered="false"
+          lowerBound="1" eType="#//Vocabulary/Keyword"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Intension" eSuperTypes="#//Grammar/Instance">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Intension has one of three grammatical forms:&#xA;a) Question:  Why/How &lt;sentence>&#xA;b) Interrogative:  What/HowMany &lt;rolePhrase>&#xA;c) ReifiedClassifier: &lt;rolePhrase>"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="concept" ordered="false"
+          eType="#//Grammar/RolePhrase"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Parse">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Parse is a box that formally contains (for EMF purposes) all the parse elements that may have multiple and/or changeable parents.&#xA;&#xA;It has no semantics whatever.  It was created to prevent problems with the EMF requirement that the parse must be a &quot;composition&quot;-linked tree structure."/>
+      </eAnnotations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DomainForm" eSuperTypes="#//Grammar/Sentence">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Represents a sentence structure of the form:&#xA;  For each x, sentence&#xA;  There exists an x such that sentence&#xA;Used specifically in expanding properties, to introduce the domain (variable) before the property variable"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="statement" ordered="false"
+          eType="#//Grammar/Sentence"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="modality" ordered="false"
+          lowerBound="1" eType="#//Grammar/Modality"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="LocalName" eSuperTypes="#//Grammar/SimpleNounPhrase">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="word" ordered="false"
+          lowerBound="1" eType="#//Vocabulary/Word"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="next" ordered="false"
+          eType="#//Grammar/LocalName"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="ElementKind">
+      <eLiterals name="None"/>
+      <eLiterals name="Sentence" value="1"/>
+      <eLiterals name="Qualifier" value="2"/>
+      <eLiterals name="Quantifier" value="3"/>
+      <eLiterals name="Condition" value="4"/>
+      <eLiterals name="Modifier" value="5"/>
+      <eLiterals name="Noun" value="6"/>
+      <eLiterals name="Group" value="7"/>
+      <eLiterals name="Query" value="8"/>
+      <eLiterals name="Instance" value="9"/>
+      <eLiterals name="Property" value="10"/>
+      <eLiterals name="Pronoun" value="11"/>
+      <eLiterals name="Role" value="12"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ParseElement" abstract="true">
+      <eOperations name="getElementKind" ordered="false" lowerBound="1" eType="#//Grammar/ElementKind"/>
+      <eOperations name="isSentence" ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eOperations name="isInstance" ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eOperations name="isRolePhrase" ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parent" ordered="false"
+          eType="#//Grammar/ParseElement"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="Logic" nsURI="http:///NBVR/Logic.ecore" nsPrefix="NBVR.Logic">
+    <eClassifiers xsi:type="ecore:EClass" name="Variable">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="source" ordered="false"
+          eType="#//Logic/Quantification" eOpposite="#//Logic/Quantification/variable"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="constraint" ordered="false"
+          eType="#//Logic/Proposition"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="uses" ordered="false"
+          lowerBound="1" upperBound="-1" eType="#//Logic/Relation"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="range" ordered="false"
+          lowerBound="1" eType="#//Vocabulary/VocNoun"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="set" ordered="false"
+          eType="#//Logic/Set" eOpposite="#//Logic/Set/variable"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Quantification" eSuperTypes="#//Logic/Proposition">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="scope" ordered="false"
+          lowerBound="1" eType="#//Logic/Proposition"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" ordered="false"
+          lowerBound="1" eType="#//Grammar/QuantifierKind"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="unique" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="variable" ordered="false"
+          lowerBound="1" eType="#//Logic/Variable" eOpposite="#//Logic/Variable/source"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Proposition" abstract="true" eSuperTypes="#//Vocabulary/FormulationForm">
+      <eOperations name="getType" ordered="false" lowerBound="1" eType="#//Logic/PropositionKind"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="owner" ordered="false"
+          eType="#//Logic/Proposition"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EEnum" name="PropositionKind">
+      <eLiterals name="Relation"/>
+      <eLiterals name="Connection" value="1"/>
+      <eLiterals name="Implication" value="2"/>
+      <eLiterals name="Negation" value="3"/>
+      <eLiterals name="Quantification" value="4"/>
+      <eLiterals name="Modal" value="5"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Relation" eSuperTypes="#//Logic/Proposition">
+      <eOperations name="getArgument" ordered="false" lowerBound="1" eType="#//Logic/Argument"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="arguments" ordered="false"
+          lowerBound="1" upperBound="-1" eType="#//Logic/Argument" containment="true"
+          eOpposite="#//Logic/Argument/relation"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="predicate" ordered="false"
+          lowerBound="1" eType="#//Logic/Predicate"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Argument">
+      <eOperations name="hasNext" ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="next" ordered="false"
+          eType="#//Logic/Argument"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="variable" ordered="false"
+          eType="#//Logic/Variable"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="phrase" ordered="false"
+          lowerBound="1" eType="#//Grammar/RolePhrase"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="role" ordered="false"
+          eType="#//Vocabulary/VerbRole"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="constant" ordered="false"
+          eType="#//Logic/Constant" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="relation" ordered="false"
+          lowerBound="1" eType="#//Logic/Relation" eOpposite="#//Logic/Relation/arguments"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Constant" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" ordered="false"
+          lowerBound="1" eType="#//Grammar/InstanceKind"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Set">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="extent" ordered="false"
+          eType="#//Logic/ExtentConstant" eOpposite="#//Logic/ExtentConstant/set"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="variable" ordered="false"
+          lowerBound="1" eType="#//Logic/Variable" eOpposite="#//Logic/Variable/set"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ExtentConstant" eSuperTypes="#//Logic/Constant">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="set" ordered="false"
+          lowerBound="1" eType="#//Logic/Set" eOpposite="#//Logic/Set/extent"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Connection" eSuperTypes="#//Logic/Proposition">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="operands" ordered="false"
+          lowerBound="1" upperBound="-1" eType="#//Logic/Proposition"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" ordered="false"
+          lowerBound="1" eType="#//Grammar/Connective"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Implication" eSuperTypes="#//Logic/Proposition">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="antecedent" ordered="false"
+          lowerBound="1" eType="#//Logic/Proposition"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="consequent" ordered="false"
+          lowerBound="1" eType="#//Logic/Proposition"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Modal" eSuperTypes="#//Logic/Proposition">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="scope" ordered="false"
+          lowerBound="1" eType="#//Logic/Proposition"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="kind" ordered="false"
+          lowerBound="1" eType="#//Grammar/Modality"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Negation" eSuperTypes="#//Logic/Proposition">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="scope" ordered="false"
+          lowerBound="1" eType="#//Logic/Proposition"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="RoleVariable" eSuperTypes="#//Logic/Variable">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="predicate" ordered="false"
+          eType="#//Logic/Predicate" eOpposite="#//Logic/Predicate/variables"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="role" ordered="false"
+          eType="#//Vocabulary/VerbRole"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ValueConstant" eSuperTypes="#//Logic/Constant">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="NominalConstant" eSuperTypes="#//Logic/Constant">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="proposition" ordered="false"
+          lowerBound="1" eType="#//Logic/Proposition"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="QuantityValue" eSuperTypes="#//Logic/Constant">
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="factor" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="unit" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Predicate">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="variables" ordered="false"
+          lowerBound="1" upperBound="-1" eType="#//Logic/RoleVariable" containment="true"
+          eOpposite="#//Logic/RoleVariable/predicate"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="noun" ordered="false"
+          eType="#//Vocabulary/VocNoun" eOpposite="#//Vocabulary/VocNoun/predicate"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="verb" ordered="false"
+          eType="#//Vocabulary/VocVerb" eOpposite="#//Vocabulary/VocVerb/predicate"/>
+    </eClassifiers>
+  </eSubpackages>
+  <eSubpackages name="UMLStandardProfile" nsURI="http:///NBVR/UMLStandardProfile.ecore"
+      nsPrefix="NBVR.UMLStandardProfile">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+      <details key="documentation" value="UML Standard Profile contains UML metamodel (metaclasses without properties and associations), StandardProfileL2 and StandardProfileL3 from UML specification, Standard UML stereotypes defined in annex C of UML specification.&#xA;Profile also includes validation suites for UML model correctness and completeness checking, and stereotypes used by MagicDraw internally."/>
+    </eAnnotations>
+  </eSubpackages>
+</ecore:EPackage>
