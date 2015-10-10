@@ -6,7 +6,7 @@ This repository contains source code of the RECON tool.
 The NIST Restricted English for Constructing Ontologies (RECON) language is intended as a close relative 
 of English that has a well-defined interpretation in a formal logic language.  The idea is that, with the 
 help of a speaker of RECON English, a domain expert can formalize the concepts in his/her domain, 
-and at least read the formalizations.
+and at least read the formalizations. 
 
 Capturing business rules in a formal logic representation supports the enterprise in two important ways:
 it enables the evaluation of logs and audit records for conformance to, or violation of, the rules; and it 
@@ -15,6 +15,8 @@ of the rules are very difficult for an industry expert to read and even more dif
 translating the natural language of the enterprise to formal logic is an unsolved problem. 
 RECON (Restricted English for Constructing Ontologies) is a subset of English that can be easily read by 
 an industry expert, while having a formal grammar and an unambiguous translation to formal logic. 
+
+Additional documentation on the software can be found in the docs directory.
 
 ## Contacts
 * Peter Denno: peter.denno@nist.gov, 301-975-3595
